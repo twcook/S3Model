@@ -1,0 +1,94 @@
+# This is the Shareable, Structured, Semantic Model (S3Model) reference model (RM) implementation.
+# See S3Model.com for documentation.
+# This work is Copyright 2016 - 2021 Timothy W. Cook, All Rights Reserved.
+# Apache License Version 2.0, January 2004 http://www.apache.org/licenses/
+
+PREFIX : <https://www.s3model.com/ns/s3m/> .
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> . 
+PREFIX sh: <http://www.w3.org/ns/shacl#> .
+
+rdfs:label "S3Model Release 4.0.0 Reference Model" .
+
+:XdAnyType 
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf rdfs:Resource ;
+    rdfs:label "XdAnyType"
+    rdfs:comment "Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model." ;
+    sh:property [
+        sh:path ":label" ;
+        sh:name "Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling." ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":act" ;
+        sh:name "Access Control Tag" ;
+        sh:description "Access Control Tag. If this is used it must contain a valid term from the Access Control System linked to by the containing Data Model." ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":vtb" ;
+        sh:name "Valid Time Begin" ;
+        sh:description "If present this must be a valid datetime including timezone. It is used to indicate the beginning time that information is considered valid." ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+       
+    sh:property [
+        sh:path ":vte" ;
+        sh:name "Valid Time End" ;
+        sh:description "If present this must be a valid date-time including timezone. It is used to indicate the ending time that information is considered valid or the time the information expired or will expire." ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":tr" ;
+        sh:name "Time Recorded" ;
+        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was recorded." ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":modified" ;
+        sh:name "Time Modified" ;
+        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was last changed." ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":latitude" ;
+        sh:name "Latitude" ;
+        sh:description "Latitude in decimal format. Value range -90.000000 to 90.000000." ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive -90.000000 ;
+        sh:maxInclusive 90.000000 ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path ":longitude" ;
+        sh:name "Longitude" ;
+        sh:description "Longitude in decimal format. Value range -180.000000 to 180.000000." ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive -180.000000 ;
+        sh:maxInclusive 180.000000 ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
