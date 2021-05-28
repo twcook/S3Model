@@ -3,78 +3,81 @@
 # This work is Copyright 2016 - 2021 Timothy W. Cook, All Rights Reserved.
 # Apache License Version 2.0, January 2004 http://www.apache.org/licenses/
 
-PREFIX : <https://www.s3model.com/ns/s3m/> .
+PREFIX s3m: <https://www.s3model.com/ns/s3m/> .
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> . 
 PREFIX sh: <http://www.w3.org/ns/shacl#> .
+PREFIX dash: <http://datashapes.org/dash#> .
 
 rdfs:label "S3Model Release 4.0.0 Reference Model" .
 
-:XdAnyType 
+s3m:XdAnyShape
     a rdfs:Class, sh:NodeShape ;
     rdfs:subClassOf rdfs:Resource ;
-    rdfs:label "XdAnyType"
-    rdfs:comment "Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model." ;
+    dash:abstract true ;
+    rdfs:label "XdAny Shape" ;
+    rdfs:comment "Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model."@en ;
     sh:property [
-        sh:path ":label" ;
+        sh:path s3m:label ;
         sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling." ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
 
     sh:property [
-        sh:path ":act" ;
+        sh:path s3m:act ;
         sh:name "Access Control Tag" ;
-        sh:description "Access Control Tag. If this is used it must contain a valid term from the Access Control System linked to by the containing Data Model." ;
+        sh:description "Access Control Tag. If this is used it must contain a valid term from the Access Control System linked to by the containing Data Model."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
 
     sh:property [
-        sh:path ":vtb" ;
+        sh:path s3m:vtb ;
         sh:name "Valid Time Begin" ;
-        sh:description "If present this must be a valid datetime including timezone. It is used to indicate the beginning time that information is considered valid." ;
+        sh:description "If present this must be a valid datetime including timezone. It is used to indicate the beginning time that information is considered valid."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
        
     sh:property [
-        sh:path ":vte" ;
+        sh:path s3m:vte ;
         sh:name "Valid Time End" ;
-        sh:description "If present this must be a valid date-time including timezone. It is used to indicate the ending time that information is considered valid or the time the information expired or will expire." ;
+        sh:description "If present this must be a valid date-time including timezone. It is used to indicate the ending time that information is considered valid or the time the information expired or will expire."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
 
     sh:property [
-        sh:path ":tr" ;
+        sh:path s3m:tr ;
         sh:name "Time Recorded" ;
-        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was recorded." ;
+        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was recorded."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
 
     sh:property [
-        sh:path ":modified" ;
+        sh:path s3m:modified ;
         sh:name "Time Modified" ;
-        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was last changed." ;
+        sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was last changed."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] ;
 
     sh:property [
-        sh:path ":latitude" ;
+        sh:path s3m:latitude ;
         sh:name "Latitude" ;
-        sh:description "Latitude in decimal format. Value range -90.000000 to 90.000000." ;
+        sh:description "Latitude in decimal format. Value range -90.000000 to 90.000000."@en ;
+        dash:coExistsWith :longitude
         sh:datatype xsd:decimal ;
         sh:minInclusive -90.000000 ;
         sh:maxInclusive 90.000000 ;
@@ -83,12 +86,238 @@ rdfs:label "S3Model Release 4.0.0 Reference Model" .
         ] ;
 
     sh:property [
-        sh:path ":longitude" ;
+        sh:path s3m:longitude ;
         sh:name "Longitude" ;
-        sh:description "Longitude in decimal format. Value range -180.000000 to 180.000000." ;
+        sh:description "Longitude in decimal format. Value range -180.000000 to 180.000000."@en ;
+        dash:coExistsWith :latitude
         sh:datatype xsd:decimal ;
         sh:minInclusive -180.000000 ;
         sh:maxInclusive 180.000000 ;
         sh:maxCount 1 ;
         sh:minCount 0 ;
         ] .
+
+s3m:XdBooleanShape
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf s3m:XdAnyShape ;
+    rdfs:label "XdBoolean Shape"
+    rdfs:comment "An enumerated type which represents boolean decisions. Such as true/false or yes/no answers. Useful where it is essential to devise the meanings (often questions in subjective data) carefully so that the only allowed result values result in one the options; true or false but are presented to the user as a list of options. The possible choices for True or False are enumerations in the DM. The reference model defines 'true-value' and 'false-value' in an sh:xone so only one or the other may be present in the instance data."@en ;
+    sh:property [
+        sh:path s3m:true-values ;
+        sh:name "True Values" ;
+        sh:description "A list with one or more strings that represents a boolean True in the implementation."@en ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
+                sh:datatype xsd:string ;
+                ]
+        ] 
+
+    sh:property [
+        sh:path s3m:false-values ;
+        sh:name "False Values" ;
+        sh:description "A list with one or more strings that represents a boolean False in the implementation."@en ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
+                sh:datatype xsd:string ;
+                ]
+        ] ;
+
+    sh:property [
+        sh:path s3m:chosen-value ;
+        sh:name "Chosen Value" ;
+        sh:description "In the implementation this property holds the value from one of the two lists." ;
+        sh:datatype xsd:string ;
+        ] .
+
+s3m:XdLinkShape
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf s3m:XdAnyShape ;
+    rdfs:label "XdLink Shape"
+    rdfs:comment "Used to specify a Universal Resource Identifier. Set the pattern facet to accommodate your needs in the DM. Intended use is to provide a mechanism that can be used to link together Data Models. The relation element allows for the use of a descriptive
+        term for the link with an optional URI pointing to the source vocabulary. In most usecases the modeler will define all three of these using the 'fixed' attribute. Other usecases will have the 'relation' and 'relation-uri' elements fixed and the application will provide the 'link-value'."@en ;
+    sh:property [
+        sh:path "s3m:link" ;
+        sh:name "Link" ;
+        sh:description "A dereferenceable (or not) URL to another CMC or other model like entity."@en ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:relation" ;
+        sh:name "Relation" ;
+        sh:description "A required term, normally drawn from a vocabulary or ontology such as the OBO RO."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:relation-uri" ;
+        sh:name "Relation URI" ;
+        sh:description "A URI where the definition of the relation element term can be found. Normally points to an ontology such as the OBO RO http://purl.obolibrary.org/obo/ro.owl"@en ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
+
+s3m:XdStringShape
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf s3m:XdAnyShape ;
+    rdfs:label "XdString Shape"
+    rdfs:comment "The string data type can contain characters, line feeds, carriage returns, and tab characters. The use cases are for any free form text entry or for any enumerated lists. Additionally the minimum and maximum lengths may be set and regular expression patterns
+        may be specified."@en ;
+    sh:property [
+        sh:path "s3m:xdstring-value" ;
+        sh:name "String Value" ;
+        sh:description "The string value of the item."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:xdstring-language" ;
+        sh:name "String Language" ;
+        sh:description "Optional indicator of the localised language in which this data-type is written. Used when the language used here is different from the enclosing Data Model."@en ;
+        sh:datatype xsd:language ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
+
+s3m:XdFileShape
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf s3m:XdAnyShape ;
+    rdfs:label "XdFile Shape"
+    rdfs:comment "A type to use for encapsulated content (aka. files) for image, audio and other media types with a defined MIME type. This type provides a choice of embedding the content into the data or using a URL to point to the content."@en ;
+    sh:property [
+        sh:path "s3m:size" ;
+        sh:name "Size" ;
+        sh:description "Original size in bytes of unencoded encapsulated data. I.e. encodings such as base64, hexadecimal, etc. do not change the value of this element."@en ;
+        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:encoding" ;
+        sh:name "Encoding" ;
+        sh:description "Name of character encoding scheme in which this value is encoded. Coded from the IANA charcater set table: http://www.iana.org/assignments/character-sets Unicode is the default assumption in S3Model, with UTF-8 being the assumed encoding. This
+                element allows for variations from these assumptions."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:xdfile-language" ;
+        sh:name "String Language" ;
+        sh:description "Optional indicator of the localised language of the content. Typically remains optional in the CMC and used at runtime when the content is in a different language from the enclosing CMC."@en ;
+        sh:datatype xsd:language ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:media-type" ;
+        sh:name "Media Type" ;
+        sh:description "Media (MIME) type of the original media-content w/o any compression. See IANA registered types: http://www.iana.org/assignments/media-types/media-types.xhtml"@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:formalism" ;
+        sh:name "Formalism" ;
+        sh:description "Name of the formalism or syntax used to inform an application regarding a candidate parser to use on the content. Examples might include: 'ATL', 'MOLA', 'QVT', 'GDL', 'GLIF', etc."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:compression-type" ;
+        sh:name "Compression Type" ;
+        sh:description "Compression/archiving mime-type. If this elements does not exist then it means there is no compression/archiving. For a list of common mime-types for compression/archiving see: http://en.wikipedia.org/wiki/List_of_archive_formats."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:hash-result" ;
+        sh:name "HASH Result" ;
+        sh:description "Hash function result of the 'media-content'. There must be a corresponding hash function type listed for this to have any meaning. See: http://en.wikipedia.org/wiki/List_of_hash_functions#Cryptographic_hash_functions"@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:hash-function" ;
+        sh:name "HASH Function" ;
+        sh:description "Hash function used to compute hash-result. See: http://en.wikipedia.org/wiki/List_of_hash_functions#Cryptographic_hash_functions"@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:alt-txt" ;
+        sh:name "Alt Text" ;
+        sh:description "Text to display in lieu of multimedia display or execution."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:uri" ;
+        sh:name "URI" ;
+        sh:description "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference."@en ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path "s3m:media-content" ;
+        sh:name "Media Content" ;
+        sh:description "he content, if stored locally. The CMC modeler chooses either a uri or local content element."@en ;
+        sh:datatype xsd:base64Binary ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
+
+s3m:XdOrderedShape
+    a rdfs:Class, sh:NodeShape ;
+    rdfs:subClassOf s3m:XdAnyShape ;
+    dash:abstract true ;
+    rdfs:label "XdOrdered Shape"
+    rdfs:comment "Abstract type defining the concept of ordered values, which includes ordinals as well as true quantities. The implementations require the functions ‘&lt;’, '&gt;' and is_strictly_comparable_to ('==')."@en ;
+    sh:property [
+        sh:path "s3m:ranges" ;
+        sh:name "Ranges" ;
+        sh:description "Optional list of ReferenceRanges for this value in its particular measurement context."@en ;
+        sh:node dash:ListShape ;
+        sh:property [
+            sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:datatype s3m:ReferenceRanges ;
+            ]
+        ] ;
+
+    sh:property [
+        sh:path ":xdstring-language" ;
+        sh:name "String Language" ;
+        sh:description "Optional indicator of the localised language in which this data-type is written. Used when the language used here is different from the enclosing Data Model."@en ;
+        sh:datatype xsd:language ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
+
+
+
