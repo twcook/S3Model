@@ -913,6 +913,29 @@ s3m:ParticipationShape
         sh:minCount 0 ;
         ] .
 
+# TODO: Does the sh:in allow for subtypes or do we have to list every class individually?
+s3m:ClusterShape
+    a rdfs:Class, sh:NodeShape ;
+    sh:targetClass s3m:Cluster ;
+    rdfs:label "Cluster Shape" ;
+    rdfs:comment "The grouping component, which may contain further instances of itself or any eXtended datatype, in an ordered list. This can serve as the root component for arbitrarily complex structures."@en ;
+
+    sh:property [
+        sh:path s3m:label ;
+        sh:name "Label" ;
+        sh:description "Descriptive name of this datatype model."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:items ;
+        sh:name "Items" ;
+        sh:description "List of Items which may be XdAny subclasses and/or other Clusters."@en ;
+        sh:in (s3m:XdAny s3m:Cluster s3m:Party s3m:Attestation s3m:Audit s3m:Participation ) ;
+        sh:minCount 0 ;
+        ] .
 
 
 
