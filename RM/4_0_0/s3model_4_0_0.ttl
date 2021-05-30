@@ -853,6 +853,67 @@ s3m:AttestationShape
         ] .
 
 
+s3m:ParticipationShape
+    a rdfs:Class, sh:NodeShape ;
+    sh:targetClass s3m:Participation ;
+    rdfs:label "Participation Shape" ;
+    rdfs:comment "Model of a participation of a Party (any Actor or Role) in an activity. Used to represent any participation of a Party in some activity, which is not explicitly in the model, e.g. assisting nurse. Can be used to record past or future participations."@en ;
+
+    sh:property [
+        sh:path s3m:label ;
+        sh:name "Label" ;
+        sh:description "Descriptive name of this datatype model."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:performer ;
+        sh:name "Performer" ;
+        sh:description "The id and possibly demographic system link of the party that represents the primary provider of services in the activity."@en ;
+        sh:datatype s3m:Party ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:function ;
+        sh:name "Function" ;
+        sh:description "The function of the performer in this participation. In some applications this might be called a Role."@en ;
+        sh:datatype xsd:XdString ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:mode ;
+        sh:name "Mode" ;
+        sh:description "The mode of the performer / activity interaction, e.g. present, by telephone, by email etc. If the participation is by device or software it may contain a protocol standard or interface definition."@en ;
+        sh:datatype s3m:XdString ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:start ;
+        sh:name "Start DateTime" ;
+        sh:description "The beginning datetime when the participation took place."@en ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:end ;
+        sh:name "End DateTime" ;
+        sh:description "The ending datetime when the participation took place."@en ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] .
+
+
 
 
 
