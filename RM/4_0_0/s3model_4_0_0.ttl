@@ -937,6 +937,153 @@ s3m:ClusterShape
         sh:minCount 0 ;
         ] .
 
+s3m:DataModelShape
+    a rdfs:Class, sh:NodeShape ;
+    sh:targetClass s3m:dataModel ;
+    rdfs:label "Data Model Shape" ;
+    rdfs:comment "This is the root encapsulationg node of a Data Model (DM)."@en ;
+
+    sh:property [
+        sh:path s3m:cuid ;
+        sh:name "CUID" ;
+        sh:description "Collision-resistant id."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:label ;
+        sh:name "Label" ;
+        sh:description "Descriptive name of this data model."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:dmLanguage ;
+        sh:name "Data Model Language" ;
+        sh:description "Mandatory indicator of the localised language in which this DM is written. The value space of language is the set of all strings that are valid language identifiers as defined [RFC 3066]."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:dmEncoding ;
+        sh:name "Data Model Encoding" ;
+        sh:description "Name of character set encoding in which text values in this DM are encoded. Default is utf-8."@en ;
+        sh:datatype xsd:string ;
+        s3m:dmEncoding "UTF-8" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:currentState ;
+        sh:name "Current State" ;
+        sh:description "The current state according to the state machine / workflow engine identified in the workflow element."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:structure ;
+        sh:name "Data Model Structure" ;
+        sh:description "The data structure of the model."@en ;
+        sh:datatype s3m:Cluster ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:subject ;
+        sh:name "Subject" ;
+        sh:description "Id of human subject of the data, e.g.: • subject of record (patient, customer, etc.) • a family member • another clinically relevant person."@en ;
+        sh:datatype s3m:Party ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:provider ;
+        sh:name "Provider" ;
+        sh:description "Optional identification of the source of the information, which might be: • a patient • a patient agent, e.g. parent, guardian • a clinician • a technician • a device or software."@en ;
+        sh:datatype s3m:Party ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:participation ;
+        sh:name "Participation" ;
+        sh:description "List of other participations in the data."@en ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+                sh:datatype s3m:Participation ;
+                ]
+        ] ;
+
+    sh:property [
+        sh:path s3m:protocol ;
+        sh:name "Protocol" ;
+        sh:description "Optional external identifier of protocol used when collecting the data. This could be a clinical guideline, an operations protocol,etc."@en ;
+        sh:datatype s3m:XdString ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:workflow ;
+        sh:name "Workflow" ;
+        sh:description "Identifier of externally held workflow engine (state machine) data for this workflow execution."@en ;
+        sh:datatype s3m:XdLink ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:acs ;
+        sh:name "Access Control System" ;
+        sh:description "Identifier of an externally held access control system. This URI can be an ontology, vocabulary or descriptive document URI link."@en ;
+        sh:datatype s3m:XdLink ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:audit ;
+        sh:name "Audit" ;
+        sh:description "List of audits from the system of original commit of information forming the content, or from a conversion gateway which has processed this data."@en ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+                sh:datatype s3m:Audit ;
+                ]
+        ] ;
+
+    sh:property [
+        sh:path s3m:attestation ;
+        sh:name "Attestation" ;
+        sh:description ""@en ;
+        sh:datatype s3m:Attestation ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        ] ;
+
+    sh:property [
+        sh:path s3m:link ;
+        sh:name "Link" ;
+        sh:description "Optional link(s) to other related, locatable structures or external entities."@en ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+                sh:datatype s3m:XdLink ;
+                ]
+        ] ;
 
 
 

@@ -8,11 +8,10 @@ PREFIX  sh: <http://www.w3.org/ns/shacl>
 
 # Naming is now 's3m' + cuid() 
 
-<!-- Include the RM Shapes -->
-owl:imports <https://www.s3model.com/ns/s3m/s3model_3_1_0.xsd>
+# Include the RM Shapes 
+owl:imports <file://s3model_4_0_0.ttl>
 
 
-<!-- Metadata -->
   <xs:annotation><xs:appinfo><rdf:RDF><rdf:Description
     rdf:about="s3mcjff70c8904bblzl3ujhclwu0">
     <dc:title>Demo Data Model</dc:title>
