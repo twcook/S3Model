@@ -1083,10 +1083,4 @@ s3m:DataModelShape
                 sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype s3m:XdLink ;
                 ]
-        ] ;
-
-
-
-
-
-
+        ] .
