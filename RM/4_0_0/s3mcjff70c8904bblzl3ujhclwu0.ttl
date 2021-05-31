@@ -31,3 +31,34 @@ PREFIX schema: <http://schema.org/>
 
   schema:fileFormat
     schema:Text "text/turtle" .
+
+s3m:cjff70c8904bblzl3ujhclwu0 a s3m:dataModel ;
+  s3m:cuid "cjff70c8904bblzl3ujhclwu0" ;
+  s3m:metaData :md ;
+  s3m:label "Demo Data Model" ;
+  s3m:dmLanguage "en-US" ;
+  s3m:dmEncoding "UTF-8" ;
+  s3m:currentState "Unknown" ;
+  s3m:structure :cji1yqp7q003wlkl39ge4nc11 ;
+  s3m:subject :cjifyy22m003as5l3vj25wrtm ;
+  s3m:provider :cji1yqq62003zlkl36cpaus61 ;
+  s3m:participation (:cji1yqqod004clkl3tkc165sw) ;
+  s3m:protocol :cjifyy08d000rs5l3m7c2nkyx ;
+  s3m:workflow :cji1yqnpb0023lkl37horu6jm ;
+  s3m:acs :cji1yqnpb0023lkl37horu6kl ;
+  s3m:audit (:cji1yqqsd004elkl3kmdwzvaz) ;
+  s3m:attestation :cji1yqqq7004dlkl3d82s6cn7 ;
+  s3m:link :cji1yqnn60021lkl3wvadadzf .  
+
+:cjifyy22m003as5l3vj25wrtm a s3m:Party .
+:cji1yqq62003zlkl36cpaus61 a s3m:Party .
+:cji1yqqod004clkl3tkc165sw a s3m:Participation .
+:cjifyy08d000rs5l3m7c2nkyx a s3m:XdString .
+:cji1yqnpb0023lkl37horu6jm a s3m:XdLink .
+:cji1yqnpb0023lkl37horu6kl a s3m:XdLink .
+:cji1yqqsd004elkl3kmdwzvaz a s3m:Audit .
+:cji1yqqq7004dlkl3d82s6cn7 a s3m:Attestation .
+:cji1yqnn60021lkl3wvadadzf a s3m:XdLink .
+
+# Structure
+:cji1yqp7q003wlkl39ge4nc11 a s3m:Cluster .
