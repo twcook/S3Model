@@ -1131,7 +1131,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:path schema:datePublished ;
         sh:name "Publication Date" ;
         sh:description "DateTime of first publication."@en ;
-        sh:datatype xsd:dateTime ;
+        sh:datatype xsd:date ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
         ] ;

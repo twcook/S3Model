@@ -14,21 +14,20 @@ PREFIX  s3m: <https://www.s3model.com/ns/s3m/>
 PREFIX  sh: <http://www.w3.org/ns/shacl>
 PREFIX schema: <http://schema.org/> 
 
-
-
-
 # define the metadata
-:author a schema:Person ;
-  schema:name "Timothy W. Cook" .
 
-:license a schema:license;
-  schema:URL <http://creativecommons.org/licenses/by/3.0/> .
+:md a s3m:metaData;
+  schema:author 
+    schema:name "Timothy W. Cook" .
 
-:publisher a schema:publisher ;
-  schema:name "Timothy W. Cook" .
+  schema:license
+    schema:URL <http://creativecommons.org/licenses/by/3.0/> .
 
-:md a s3m:MetaData;
 
-.      
+  schema:publisher 
+    schema:name "Timothy W. Cook" .
 
-  
+  schema:datePublished "01-01-2021"^^xsd:date .
+
+  schema:fileFormat
+    schema:Text "text/turtle" .
