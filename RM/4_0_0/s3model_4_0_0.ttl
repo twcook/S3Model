@@ -16,8 +16,7 @@ s3m:Version
     sh:name "4.0.0" ;
     rdfs:label "S3Model Release 4.0.0 Reference Model" .
 
-s3m:XdAnyShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdAnyShape a sh:NodeShape ;
     sh:targetClass s3m:XdAny ;
     rdfs:subClassOf rdfs:Resource ;
     dash:abstract true ;
@@ -103,8 +102,7 @@ s3m:XdAnyShape
         ] .
 
 # TODO: Add a function to determine if the chosen value is true or false.
-s3m:XdBooleanShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdBooleanShape a sh:NodeShape ;
     sh:targetClass s3m:XdBoolean ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdBoolean Shape" ;
@@ -139,8 +137,7 @@ s3m:XdBooleanShape
         sh:datatype xsd:string ;
         ] .
 
-s3m:XdLinkShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdLinkShape a sh:NodeShape ;
     sh:targetClass s3m:XdLink ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdLink Shape" ;
@@ -173,8 +170,7 @@ s3m:XdLinkShape
         sh:minCount 0 ;
         ] .
 
-s3m:XdStringShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdStringShape a sh:NodeShape ;
     sh:targetClass s3m:XdString ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdString Shape" ;
@@ -198,8 +194,7 @@ s3m:XdStringShape
         sh:minCount 0 ;
         ] .
 
-s3m:XdFileShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdFileShape a sh:NodeShape ;
     sh:targetClass s3m:XdFile ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdFile Shape" ;
@@ -304,8 +299,7 @@ s3m:XdFileShape
         sh:minCount 0 ;
         ] .
 
-s3m:XdOrderedShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdOrderedShape a sh:NodeShape ;
     sh:targetClass s3m:XdOrdered ;
     rdfs:subClassOf s3m:XdAnyShape ;
     dash:abstract true ;
@@ -334,8 +328,7 @@ s3m:XdOrderedShape
 
 # TODO: Add a function/constraint to insure that the ordinal and symbol lists are the same length.
 
-s3m:XdOrdinalShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdOrdinalShape a sh:NodeShape ;
     sh:targetClass s3m:XdOrdinal ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     rdfs:label "XdOrdinal Shape" ;
@@ -363,8 +356,7 @@ s3m:XdOrdinalShape
             ]
         ] .
 
-s3m:XdQuantifiedShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdQuantifiedShape a sh:NodeShape ;
     sh:targetClass s3m:XdQuantified ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     dash:abstract true ;
@@ -397,8 +389,7 @@ s3m:XdQuantifiedShape
         sh:minCount 0 ;
         ] .
 
-s3m:XdCountShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdCountShape a sh:NodeShape ;
     sh:targetClass s3m:XdCount ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdCount Shape" ;
@@ -422,8 +413,7 @@ s3m:XdCountShape
         sh:minCount 1 ;
         ] .
 
-s3m:XdQuantityShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdQuantityShape a sh:NodeShape ;
     sh:targetClass s3m:XdQuantity ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdQuantity Shape" ;
@@ -447,8 +437,7 @@ s3m:XdQuantityShape
         sh:minCount 1 ;
         ] .
 
-s3m:XdFloatShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdFloatShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdFloat Shape" ;
@@ -472,8 +461,7 @@ s3m:XdFloatShape
         sh:minCount 1 ;
         ] .
 
-s3m:XdTemporalShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdTemporalShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     rdfs:label "XdTemporal Shape" ;
@@ -565,8 +553,7 @@ s3m:XdTemporalShape
 
     ) .
     
-s3m:XdIntervalShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:XdIntervalShape a sh:NodeShape ;
     sh:targetClass s3m:XdInterval ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdInterval Shape" ;
@@ -655,8 +642,7 @@ s3m:XdIntervalShape
         sh:minCount 0 ;
         ] .
 
-s3m:ReferenceRangeShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:ReferenceRangeShape a sh:NodeShape ;
     sh:targetClass s3m:ReferenceRange ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "Reference Range Shape" ;
@@ -690,8 +676,7 @@ s3m:ReferenceRangeShape
         ] .
 
 
-s3m:AuditShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:AuditShape a sh:NodeShape ;
     sh:targetClass s3m:Audit ;
     rdfs:label "Audit Shape" ;
     rdfs:comment "Provides a mechanism to identify the who/where/when tracking of instances as they move from system to system."@en ;
@@ -741,8 +726,7 @@ s3m:AuditShape
         sh:minCount 1 ;
         ] .
 
-s3m:PartyShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:PartyShape a sh:NodeShape ;
     sh:targetClass s3m:Party ;
     rdfs:label "Party Shape" ;
     rdfs:comment "Description of a party, including an optional external link to data for this party in a demographic or other identity management system. An additional details element provides for the inclusion of information related to this party directly. If the party information is to be anonymous then do not include the details element."@en ;
@@ -783,8 +767,7 @@ s3m:PartyShape
         sh:minCount 0 ;
         ] .
 
-s3m:AttestationShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:AttestationShape a sh:NodeShape ;
     sh:targetClass s3m:Attestation ;
     rdfs:label "Attestation Shape" ;
     rdfs:comment "Record an attestation by a party of the DM content. The type of attestation is recorded by the reason attribute, which my be coded."@en ;
@@ -853,8 +836,7 @@ s3m:AttestationShape
         ] .
 
 
-s3m:ParticipationShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:ParticipationShape a sh:NodeShape ;
     sh:targetClass s3m:Participation ;
     rdfs:label "Participation Shape" ;
     rdfs:comment "Model of a participation of a Party (any Actor or Role) in an activity. Used to represent any participation of a Party in some activity, which is not explicitly in the model, e.g. assisting nurse. Can be used to record past or future participations."@en ;
@@ -913,9 +895,8 @@ s3m:ParticipationShape
         sh:minCount 0 ;
         ] .
 
-# TODO: Does the sh:in allow for subtypes or do we have to list every class individually?
-s3m:ClusterShape
-    a rdfs:Class, sh:NodeShape ;
+# TODO: Does the sh:in allow for subclasses or do we have to list every Xd* class individually?
+s3m:ClusterShape a sh:NodeShape ;
     sh:targetClass s3m:Cluster ;
     rdfs:label "Cluster Shape" ;
     rdfs:comment "The grouping component, which may contain further instances of itself or any eXtended datatype, in an ordered list. This can serve as the root component for arbitrarily complex structures."@en ;
@@ -933,12 +914,11 @@ s3m:ClusterShape
         sh:path s3m:items ;
         sh:name "Items" ;
         sh:description "List of Items which may be XdAny subclasses and/or other Clusters."@en ;
-        sh:in (s3m:XdAny s3m:Cluster s3m:Party s3m:Attestation s3m:Audit s3m:Participation ) ;
+        sh:in (s3m:XdAny s3m:Cluster ) ;
         sh:minCount 0 ;
         ] .
 
-s3m:DataModelShape
-    a rdfs:Class, sh:NodeShape ;
+s3m:DataModelShape a sh:NodeShape ;
     sh:targetClass s3m:dataModel ;
     rdfs:label "Data Model Shape" ;
     rdfs:comment "This is the root encapsulationg node of a Data Model (DM)."@en ;

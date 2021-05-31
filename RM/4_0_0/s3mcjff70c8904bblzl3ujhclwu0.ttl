@@ -14,24 +14,6 @@ PREFIX  sh: <http://www.w3.org/ns/shacl>
 owl:imports <file://s3model_4_0_0.ttl>
 
 
-  <xs:annotation><xs:appinfo><rdf:RDF><rdf:Description
-    rdf:about="s3mcjff70c8904bblzl3ujhclwu0">
-    <dc:title>Demo Data Model</dc:title>
-    <dc:creator>Timothy Cook</dc:creator>
-    <dc:contributor>admin</dc:contributor>
-    <dc:dc_subject>Demo;Test</dc:dc_subject>
-    <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
-    <dc:relation>None</dc:relation>
-    <dc:coverage>Universal</dc:coverage>
-    <dc:type>S3Model Data Model (DM)</dc:type>
-    <dc:identifier>dm-cjff70c8904bblzl3ujhclwu0</dc:identifier>
-    <dc:description>Demo data model for testing. Including the webcomponent frontend.</dc:description>
-    <dc:publisher>Data Insights, Inc.</dc:publisher>
-    <dc:date>2018-10-09 12:11:49.493116+00:00</dc:date>
-    <dc:format>text/xml</dc:format>
-    <dc:language>en-US</dc:language>
-  </rdf:Description></rdf:RDF></xs:appinfo></xs:annotation>
-<!-- Complex Type Definitions -->
   <xs:element name='dm-cjff70c8904bblzl3ujhclwu0' substitutionGroup='s3m:DM' type='s3m:mc-cjff70c8904bblzl3ujhclwu0'/> 
   <xs:complexType name='mc-cjff70c8904bblzl3ujhclwu0'> 
     <xs:annotation>
