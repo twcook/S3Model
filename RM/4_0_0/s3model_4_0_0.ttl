@@ -1201,7 +1201,7 @@ s3m:XdOrdered
 s3m:XdOrdinal
   a owl:Class ;
   rdfs:label "XdOrdinal" ;
-  rdfs:subClassOf s3m:XdOrdinal ;
+  rdfs:subClassOf s3m:XdOrdered ;
 .
 
 s3m:XdQuantified
@@ -1243,7 +1243,7 @@ s3m:XdInterval
 
 s3m:ReferenceRange
   a owl:Class ;
-  rdfs:label "XdReferenceRange" ;
+  rdfs:label "ReferenceRange" ;
   rdfs:subClassOf s3m:XdAny ;
 .
 
