@@ -1146,4 +1146,142 @@ s3m:MetaDataShape a sh:NodeShape ;
         ] .
 
 
+s3m:ReferenceModel
+  a owl:Class ;
+  rdfs:label "Reference Model" ;
+  s3m:version "4.0.0" ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+
+s3m:metaData
+  a owl:Class ;
+  rdfs:label "metaData" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:XdAny
+  a owl:Class ;
+  dash:abstract true ;
+  rdfs:label "XdAny" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:XdBoolean
+  a owl:Class ;
+  rdfs:label "XdBoolean" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:XdLink
+  a owl:Class ;
+  rdfs:label "XdLink" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:XdString
+  a owl:Class ;
+  rdfs:label "XdString" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:XdFile
+  a owl:Class ;
+  rdfs:label "XdFile" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:XdOrdered
+  a owl:Class ;
+  dash:abstract true ;
+ rdfs:label "XdOrdered" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:XdOrdinal
+  a owl:Class ;
+  rdfs:label "XdOrdinal" ;
+  rdfs:subClassOf s3m:XdOrdinal ;
+.
+
+s3m:XdQuantified
+  a owl:Class ;
+  dash:abstract true ;
+  rdfs:label "XdQuantified" ;
+  rdfs:subClassOf s3m:XdOrdered ;
+.
+
+s3m:XdCount
+  a owl:Class ;
+  rdfs:label "XdCount" ;
+  rdfs:subClassOf s3m:XdQuantified ;
+.
+
+s3m:XdQuantity
+  a owl:Class ;
+  rdfs:label "XdQuantity" ;
+  rdfs:subClassOf s3m:XdQuantified ;
+.
+
+s3m:XdFloat
+  a owl:Class ;
+  rdfs:label "XdFloat" ;
+  rdfs:subClassOf s3m:XdQuantified ;
+.
+
+s3m:XdTemporal
+  a owl:Class ;
+  rdfs:label "XdTemporal" ;
+  rdfs:subClassOf s3m:XdOrdered ;
+.
+
+s3m:XdInterval
+  a owl:Class ;
+  rdfs:label "XdInterval" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:ReferenceRange
+  a owl:Class ;
+  rdfs:label "XdReferenceRange" ;
+  rdfs:subClassOf s3m:XdAny ;
+.
+
+s3m:Audit
+  a owl:Class ;
+  rdfs:label "Audit" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:Attestation
+  a owl:Class ;
+  rdfs:label "Attestation" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:Party
+  a owl:Class ;
+  rdfs:label "Party" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:Participation
+  a owl:Class ;
+  rdfs:label "Participation" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:Cluster
+  a owl:Class ;
+  rdfs:label "Cluster" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+s3m:dataModel
+  a owl:Class ;
+  rdfs:label "Data Model" ;
+  rdfs:subClassOf s3m:ReferenceModel ;
+.
+
+
 
