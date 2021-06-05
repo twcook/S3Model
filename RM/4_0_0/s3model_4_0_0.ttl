@@ -233,8 +233,7 @@ s3m:timestamp rdf:type rdf:Property ;
       rdfs:range s3m:Audit .
 
 
-s3m:Attestation
-  a owl:Class ;
+s3m:Attestation a rdfs:Class ;
   rdfs:label "Attestation" ;
   rdfs:subClassOf s3m:ReferenceModel .
 s3m:view rdf:type rdf:Property ;
