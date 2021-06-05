@@ -1009,7 +1009,11 @@ s3m:ClusterShape a sh:NodeShape ;
         rdf:type sh:PropertyShape;
         sh:name "Items" ;
         sh:description "List of Items which may be XdAny subclasses and/or other Clusters."@en ;
-        sh:in (s3m:XdAny s3m:Cluster ) ;
+        sh:node dash:ListShape ;
+            sh:property [
+                sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
+                sh:in (s3m:XdAny s3m:Cluster ) ;
+                ] ;
         sh:minCount 0 ;
         ] .
 
@@ -1243,61 +1247,65 @@ s3m:MetaDataShape a sh:NodeShape ;
         ] .
 
 
-s3m:ReferenceModel
-  a owl:Class ;
-  rdfs:label "Reference Model" ;
-  sh:property s3m:version ;
-  rdfs:subClassOf owl:Thing ;
-  s3m:version "4.0.0"
-.
+s3m:ReferenceModel a owl:Class ;
+  rdfs:label "Reference Model" .
+s3m:version rdf:type rdf:property. 
+s3m:ReferenceModel rdfs:subClassOf owl:Thing .
+s3m:version rdf:value "4.0.0" .
+s3m:version rdfs:range s3m:ReferenceModel.
 
 
-s3m:metaData
-  a owl:Class ;
-  rdfs:label "metaData" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:author ;
-  sh:property s3m:license ;
-  sh:property s3m:publisher ;
-  sh:property s3m:datePublished ;
-  sh:property s3m:fileFormat ;
-.
+s3m:metaData a owl:Class ;
+  rdfs:label "metaData" .
+s3m:author rdf:type rdf:property ;
+    rdfs:range s3m:metaData .
+s3m:license rdf:type rdf:property ;
+    rdfs:range s3m:metaData .
+s3m:publisher rdf:type rdf:property ;
+    rdfs:range s3m:metaData .
+s3m:datePublished rdf:type rdf:property ;
+    rdfs:range s3m:metaData .
+s3m:fileFormat rdf:type rdf:property ;
+    rdfs:range s3m:metaData .
 
-s3m:XdAny
-  a owl:Class ;
+s3m:XdAny a owl:Class ;
   dash:abstract true ;
   rdfs:label "XdAny" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:label ;
-  sh:property s3m:act ;
-  sh:property s3m:vtb ;
-  sh:property s3m:vte ;
-  sh:property s3m:tr ;
-  sh:property s3m:modified ;
-  sh:property s3m:latitude ;
-  sh:property s3m:longitude ;
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:label rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:act rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:vtb rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:vte rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:tr rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:modified rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:latitude rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
+s3m:longitude rdf:type rdf:property ;
+    rdfs:range s3m:XdAny .
 
-.
 
-s3m:XdBoolean
-  a owl:Class ;
+s3m:XdBoolean a owl:Class ;
   rdfs:label "XdBoolean" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:trueValues ;
-  sh:property s3m:falseValues ;
-  sh:property s3m:chosenValue ;
-
-.
-
+  rdfs:subClassOf s3m:XdAny .
+s3m:trueValues rdf:type rdf:property .
+s3m:falseValuesd f:type rdf:property .
+s3m:chosenValue f:type rdf:property .
+ 
+ 
 s3m:XdLink
   a owl:Class ;
   rdfs:label "XdLink" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:link ;
-  sh:property s3m:relation ;
-  sh:property s3m:relationUri ;
+  rdfs:subClassOf s3m:XdAny .
+s3m:link rdf:type rdf:property .
+s3m:relation rdf:type rdf:property .
+s3m:relationUri rdf:type rdf:property .
 
-.
 
 s3m:XdString
   a owl:Class ;
