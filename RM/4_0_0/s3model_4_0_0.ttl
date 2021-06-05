@@ -1247,7 +1247,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         ] .
 
 
-s3m:ReferenceModel a owl:Class ;
+s3m:ReferenceModel a rdfs:Class ;
   rdfs:label "Reference Model" .
 s3m:version rdf:type rdf:property. 
 s3m:ReferenceModel rdfs:subClassOf owl:Thing .
@@ -1255,248 +1255,312 @@ s3m:version rdf:value "4.0.0" .
 s3m:version rdfs:range s3m:ReferenceModel.
 
 
-s3m:metaData a owl:Class ;
+s3m:metaData a rdfs:Class ;
   rdfs:label "metaData" .
-s3m:author rdf:type rdf:property ;
-    rdfs:range s3m:metaData .
-s3m:license rdf:type rdf:property ;
-    rdfs:range s3m:metaData .
-s3m:publisher rdf:type rdf:property ;
-    rdfs:range s3m:metaData .
-s3m:datePublished rdf:type rdf:property ;
-    rdfs:range s3m:metaData .
-s3m:fileFormat rdf:type rdf:property ;
-    rdfs:range s3m:metaData .
+s3m:author rdf:type rdf:Property .
+s3m:author rdfs:range s3m:metaData .
+s3m:license rdf:type rdf:Property .
+s3m:license rdfs:range s3m:metaData .
+s3m:publisher rdf:type rdf:Property .
+s3m:publisher rdfs:range s3m:metaData .
+s3m:datePublished rdf:type rdf:Property .
+s3m:datePublished rdfs:range s3m:metaData .
+s3m:fileFormat rdf:type rdf:Property .
+s3m:fileFormat rdfs:range s3m:metaData .
 
-s3m:XdAny a owl:Class ;
+s3m:XdAny a rdfs:Class ;
   dash:abstract true ;
   rdfs:label "XdAny" ;
   rdfs:subClassOf s3m:ReferenceModel .
-s3m:label rdf:type rdf:property ;
+s3m:label rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:act rdf:type rdf:property ;
+s3m:act rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:vtb rdf:type rdf:property ;
+s3m:vtb rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:vte rdf:type rdf:property ;
+s3m:vte rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:tr rdf:type rdf:property ;
+s3m:tr rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:modified rdf:type rdf:property ;
+s3m:modified rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:latitude rdf:type rdf:property ;
+s3m:latitude rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
-s3m:longitude rdf:type rdf:property ;
+s3m:longitude rdf:type rdf:Property ;
     rdfs:range s3m:XdAny .
 
 
-s3m:XdBoolean a owl:Class ;
+s3m:XdBoolean a rdfs:Class ;
   rdfs:label "XdBoolean" ;
   rdfs:subClassOf s3m:XdAny .
 s3m:trueValues rdf:type rdf:property ;
     rdfs:range s3m:XdBoolean .
-s3m:falseValuesd f:type rdf:property ;
+s3m:falseValues rdf:type rdf:property ;
     rdfs:range s3m:XdBoolean .
-s3m:chosenValue f:type rdf:property ;
+s3m:chosenValue rdf:type rdf:property ;
     rdfs:range s3m:XdBoolean .
  
  
-s3m:XdLink
-  a owl:Class ;
+s3m:XdLink a rdfs:Class ;
   rdfs:label "XdLink" ;
   rdfs:subClassOf s3m:XdAny .
-s3m:link rdf:type rdf:property .
-s3m:relation rdf:type rdf:property .
-s3m:relationUri rdf:type rdf:property .
+s3m:link rdf:type rdf:Property ; 
+    rdfs:range s3m:XdLink .
+s3m:relation rdf:type rdf:Property ;
+    rdfs:range s3m:XdLink .
+s3m:relationUri rdf:type rdf:Property ;
+    rdfs:range s3m:XdLink .
 
 
-s3m:XdString
-  a owl:Class ;
+s3m:XdString a rdfs:Class ;
   rdfs:label "XdString" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:xdstringValue ;
-  sh:property s3m:xdstringLanguage ;
-.
+  rdfs:subClassOf s3m:XdAny .
+s3m:xdstringValue rdf:type rdf:Property ;
+    rdfs:range s3m:XdString.
+s3m:xdstringLanguage rdf:type rdf:Property ;
+    rdfs:range s3m:XdString.
 
-s3m:XdFile
-  a owl:Class ;
+
+s3m:XdFile a rdfs:Class ;
   rdfs:label "XdFile" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:size ;
-  sh:property s3m:encoding ;
-  sh:property s3m:mediaType ;
-  sh:property s3m:formalism ;
-  sh:property s3m:compressionType ;
-  sh:property s3m:hashResult ;
-  sh:property s3m:hashFunction ;
-  sh:property s3m:altText ;
-  sh:property s3m:uri ;
-  sh:property s3m:mediaContent ;
-.
+  rdfs:subClassOf s3m:XdAny .
+s3m:size rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:encoding rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:mediaType rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:formalism rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:compressionType rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:hashResult rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:hashFunction rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:altText rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:uri rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
+s3m:mediaContent rdf:type rdf:Property ;
+    rdfs:range s3m:XdFile .
 
-s3m:XdOrdered
-  a owl:Class ;
+
+s3m:XdOrdered a rdfs:Class ;
   dash:abstract true ;
- rdfs:label "XdOrdered" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:ranges ;
-  sh:property s3m:normalStatus ;
-.
+  rdfs:label "XdOrdered" ;
+  rdfs:subClassOf s3m:XdAny .
+s3m:ranges rdf:type rdf:Property ;
+    rdfs:range s3m:XdOrdered .
+s3m:normalStatus rdf:type rdf:Property ;
+    rdfs:range s3m:XdOrdered .
 
-s3m:XdOrdinal
-  a owl:Class ;
+
+s3m:XdOrdinal a rdfs:Class ;
   rdfs:label "XdOrdinal" ;
-  rdfs:subClassOf s3m:XdOrdered ;
-  sh:property s3m:ordinals ;
-  sh:property s3m:symbols ;
-.
+  rdfs:subClassOf s3m:XdOrdered .
+s3m:ordinals rdf:type rdf:Property ;
+    rdfs:range s3m:XdOrdinal .
+s3m:symbols rdf:type rdf:Property ;
+    rdfs:range s3m:XdOrdinal .
 
-s3m:XdQuantified
-  a owl:Class ;
+s3m:XdQuantified a rdfs:Class ;
   dash:abstract true ;
   rdfs:label "XdQuantified" ;
-  rdfs:subClassOf s3m:XdOrdered ;
-  sh:property s3m:magnitudeStatus ;
-  sh:property s3m:error ;
-  sh:property s3m:accuracy ;
-.
+  rdfs:subClassOf s3m:XdOrdered .
+s3m:magnitudeStatus rdf:type rdf:Property ;
+    rdfs:range s3m:XdQuantified .
+s3m:error rdf:type rdf:Property ;
+    rdfs:range s3m:XdQuantified .
+s3m:accuracy rdf:type rdf:Property ;
+    rdfs:range s3m:XdQuantified .
 
-s3m:XdCount
-  a owl:Class ;
+s3m:XdCount a rdfs:Class ;
   rdfs:label "XdCount" ;
-  rdfs:subClassOf s3m:XdQuantified ;
-  sh:property s3m:xdcountValue ;
-  sh:property s3m:xdcountUnits ;
-.
+  rdfs:subClassOf s3m:XdQuantified .
+s3m:xdcountValue rdf:type rdf:Property ;
+    rdfs:range s3m:XdCount .
+s3m:xdcountUnits rdf:type rdf:Property ;
+    rdfs:range s3m:XdCount .
 
-s3m:XdQuantity
-  a owl:Class ;
+s3m:XdQuantity a rdfs:Class ;
   rdfs:label "XdQuantity" ;
-  rdfs:subClassOf s3m:XdQuantified ;
-  sh:property s3m:xdquantityValue ;
-  sh:property s3m:xdquantityUnits ;
-.
+  rdfs:subClassOf s3m:XdQuantified .
+s3m:xdquantityValue rdf:type rdf:Property ;
+      rdfs:range s3m:XdQuantity .
+s3m:xdquantityUnits rdf:type rdf:Property ;
+      rdfs:range s3m:XdQuantity .
 
-s3m:XdFloat
-  a owl:Class ;
+s3m:XdFloat a rdfs:Class ;
   rdfs:label "XdFloat" ;
-  rdfs:subClassOf s3m:XdQuantified ;
-  sh:property s3m:xdfloatValue ;
-  sh:property s3m:xdfloatUnits ;
-.
+  rdfs:subClassOf s3m:XdQuantified .
+s3m:xdfloatValue rdf:type rdf:Property ;
+      rdfs:range s3m:XdFloat .  
+s3m:xdfloatUnits rdf:type rdf:Property ;
+      rdfs:range s3m:XdFloat .
 
-s3m:XdTemporal
-  a owl:Class ;
+s3m:XdTemporal a rdfs:Class ;
   rdfs:label "XdTemporal" ;
-  rdfs:subClassOf s3m:XdOrdered ;
-  sh:property s3m:xdtemporalDate ;
-  sh:property s3m:xdtemporalTime ;
-  sh:property s3m:xdtemporalDateTime ;
-  sh:property s3m:xdtemporalDay ;
-  sh:property s3m:xdtemporalMonth ;
-  sh:property s3m:xdtemporalYear ;
-  sh:property s3m:xdtemporalYearMonth ;
-  sh:property s3m:xdtemporalMonthDay ;
-  sh:property s3m:xdtemporalDuration ;
-.
+  rdfs:subClassOf s3m:XdOrdered .
+s3m:xdtemporalDate rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalTime rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalDateTime rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalDay rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalMonth rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalYear rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalYearMonth rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalMonthDay rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
+s3m:xdtemporalDuration rdf:type rdf:Property ;
+      rdfs:range s3m:XdTemporal .
 
-s3m:XdInterval
-  a owl:Class ;
+
+s3m:XdInterval a rdfs:Class ;
   rdfs:label "XdInterval" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:lower ;
-  sh:property s3m:upper ;
-  sh:property s3m:lowerIncluded ;
-  sh:property s3m:upperIncluded ;
-  sh:property s3m:lowerBounded ;
-  sh:property s3m:upperBounded ;
-  sh:property s3m:unitsName ;
-  sh:property s3m:unitsURI ;
-.
+  rdfs:subClassOf s3m:XdAny .
+s3m:lower rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:upper rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:lowerIncluded rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:upperIncluded rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:lowerBounded rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:upperBounded rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:unitsName rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
+s3m:unitsURI rdf:type rdf:Property ;
+      rdfs:range s3m:XdInterval .
 
-s3m:ReferenceRange
-  a owl:Class ;
+s3m:ReferenceRange a rdfs:Class ;
   rdfs:label "ReferenceRange" ;
-  rdfs:subClassOf s3m:XdAny ;
-  sh:property s3m:definition ;
-  sh:property s3m:interval ;
-  sh:property s3m:isNormal ;
-.
+  rdfs:subClassOf s3m:XdAny .
+s3m:definition rdf:type rdf:Property ;
+      rdfs:range s3m:ReferenceRange .
+s3m:interval rdf:type rdf:Property ;
+      rdfs:range s3m:ReferenceRange .
+s3m:isNormal rdf:type rdf:Property ;
+      rdfs:range s3m:ReferenceRange .
 
-s3m:Audit
-  a owl:Class ;
+
+s3m:Audit a rdfs:Class ;
   rdfs:label "Audit" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:label ;
-  sh:property s3m:systemId ;
-  sh:property s3m:systemUser ;
-  sh:property s3m:location ;
-  sh:property s3m:timestamp ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:label rdf:type rdf:Property ;
+      rdfs:range s3m:Audit .
+s3m:systemId rdf:type rdf:Property ;
+      rdfs:range s3m:Audit .
+s3m:systemUser rdf:type rdf:Property ;
+      rdfs:range s3m:Audit .
+s3m:location rdf:type rdf:Property ;
+      rdfs:range s3m:Audit .
+s3m:timestamp rdf:type rdf:Property ;
+      rdfs:range s3m:Audit .
+
 
 s3m:Attestation
   a owl:Class ;
   rdfs:label "Attestation" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:view ;
-  sh:property s3m:proof ;
-  sh:property s3m:reason ;
-  sh:property s3m:committer ;
-  sh:property s3m:committed ;
-  sh:property s3m:pending ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:view rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
+s3m:proof rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
+s3m:reason rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
+s3m:committer rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
+s3m:committed rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
+s3m:pending rdf:type rdf:Property ;
+      rdfs:range s3m:Attestation .
 
-s3m:Party
-  a owl:Class ;
+
+s3m:Party a rdfs:Class ;
   rdfs:label "Party" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:label ;
-  sh:property s3m:partyName ;
-  sh:property s3m:partyRef ;
-  sh:property s3m:partyDetails ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:label rdf:type rdf:Property ;
+      rdfs:range s3m:Party .
+s3m:partyName rdf:type rdf:Property ;
+      rdfs:range s3m:Party .
+s3m:partyRef rdf:type rdf:Property ;
+      rdfs:range s3m:Party .
+s3m:partyDetails rdf:type rdf:Property ;
+      rdfs:range s3m:Party .
 
-s3m:Participation
-  a owl:Class ;
+
+s3m:Participation a rdfs:Class ;
   rdfs:label "Participation" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:label ;
-  sh:property s3m:performer ;
-  sh:property s3m:function ;
-  sh:property s3m:mode ;
-  sh:property s3m:start ;
-  sh:property s3m:end ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:label rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
+s3m:performer rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
+s3m:function rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
+s3m:mode rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
+s3m:start rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
+s3m:end rdf:type rdf:Property ;
+      rdfs:range s3m:Participation .
 
-s3m:Cluster
-  a owl:Class ;
+
+s3m:Cluster a rdfs:Class ;
   rdfs:label "Cluster" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:label ;
-  sh:property s3m:items ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:label rdf:type rdf:Property ;
+      rdfs:range s3m:Cluster .
+s3m:items rdf:type rdf:Property ;
+      rdfs:range s3m:Cluster .
 
-s3m:dataModel
-  a owl:Class ;
+
+s3m:dataModel a rdfs:Class ;
   rdfs:label "Data Model" ;
-  rdfs:subClassOf s3m:ReferenceModel ;
-  sh:property s3m:cuid ;
-  sh:property s3m:metaData ;
-  sh:property s3m:label ;
-  sh:property s3m:dmLanguage ;
-  sh:property s3m:dmEncoding ;
-  sh:property s3m:currentState ;
-  sh:property s3m:structure ;
-  sh:property s3m:subject ;
-  sh:property s3m:provider ;
-  sh:property s3m:participation ;
-  sh:property s3m:protocol ;
-  sh:property s3m:workflow ;
-  sh:property s3m:acs ;
-  sh:property s3m:audit ;
-  sh:property s3m:attestation ;
-  sh:property s3m:links ;
-.
+  rdfs:subClassOf s3m:ReferenceModel .
+s3m:cuid rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:metaData rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:label rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:dmLanguage rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:dmEncoding rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:currentState rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:structure rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:subject rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:provider rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:participation rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:protocol rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:workflow rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:acs rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:audit rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:attestation rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+s3m:links rdf:type rdf:Property ;
+      rdfs:range s3m:dataModel .
+
 
 
 
