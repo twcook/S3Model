@@ -17,41 +17,42 @@ s3m:ReferenceModel a rdfs:Class ;
 s3m:version rdf:type rdf:property. 
 s3m:ReferenceModel rdfs:subClassOf owl:Thing .
 s3m:version rdf:value "4.0.0" .
+s3m:version rdfs:domain xsd:string .
 s3m:version rdfs:range s3m:ReferenceModel.
-
 
 s3m:metaData a rdfs:Class ;
   rdfs:label "metaData" .
-s3m:author rdf:type rdf:Property .
+s3m:author rdf:type rdf:Property, xsd:string .
 s3m:author rdfs:range s3m:metaData .
-s3m:license rdf:type rdf:Property .
+s3m:license rdf:type rdf:Property, xsd:string .
 s3m:license rdfs:range s3m:metaData .
-s3m:publisher rdf:type rdf:Property .
+s3m:publisher rdf:type rdf:Property, xsd:string .
 s3m:publisher rdfs:range s3m:metaData .
-s3m:datePublished rdf:type rdf:Property .
+s3m:datePublished rdf:type rdf:Property, xsd:dateTime .
 s3m:datePublished rdfs:range s3m:metaData .
-s3m:fileFormat rdf:type rdf:Property .
+s3m:fileFormat rdf:type rdf:Property, xsd:string .
+s3m:fileFormat rdf:value "text/turtle" .
 s3m:fileFormat rdfs:range s3m:metaData .
 
 s3m:XdAny a rdfs:Class ;
   dash:abstract true ;
   rdfs:label "XdAny" ;
   rdfs:subClassOf s3m:ReferenceModel .
-s3m:label rdf:type rdf:Property ;
+s3m:label rdf:type rdf:Property, xsd:string ;
     rdfs:range s3m:XdAny .
-s3m:act rdf:type rdf:Property ;
+s3m:act rdf:type rdf:Property, xsd:string ;
     rdfs:range s3m:XdAny .
-s3m:vtb rdf:type rdf:Property ;
+s3m:vtb rdf:type rdf:Property, xsd:dateTime ;
     rdfs:range s3m:XdAny .
-s3m:vte rdf:type rdf:Property ;
+s3m:vte rdf:type rdf:Property, xsd:dateTime ;
     rdfs:range s3m:XdAny .
-s3m:tr rdf:type rdf:Property ;
+s3m:tr rdf:type rdf:Property, xsd:dateTime ;
     rdfs:range s3m:XdAny .
-s3m:modified rdf:type rdf:Property ;
+s3m:modified rdf:type rdf:Property, xsd:dateTime ;
     rdfs:range s3m:XdAny .
-s3m:latitude rdf:type rdf:Property ;
+s3m:latitude rdf:type rdf:Property, xsd:decimal ;
     rdfs:range s3m:XdAny .
-s3m:longitude rdf:type rdf:Property ;
+s3m:longitude rdf:type rdf:Property, xsd:decimal ;
     rdfs:range s3m:XdAny .
 
 

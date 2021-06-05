@@ -12,10 +12,60 @@ PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX dash: <http://datashapes.org/dash#> 
 PREFIX schema: <http://schema.org/>
 
-s3m:Version 
-    a sh:property ;
-    sh:name "4.0.0" ;
-    rdfs:label "S3Model Release 4.0.0 Reference Model" .
+s3m:MetaDataShape a sh:NodeShape ;
+    sh:targetClass s3m:metaData ;
+    rdfs:label "Data Model Metadata" ;
+    rdfs:comment "Schema.org CreativeWork Metadata about the origins of the Data Model (DM)."@en ;
+
+    sh:property [
+        sh:path schema:author ;
+        rdf:type sh:PropertyShape;
+        sh:name "Author" ;
+        sh:description "The Person that is the author of this data model."@en ;
+        sh:datatype schema:Person ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path schema:license ;
+        rdf:type sh:PropertyShape;
+        sh:name "License" ;
+        sh:description "A license document that applies to this content, indicated by URL."@en ;
+        sh:datatype schema:URL ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path schema:publisher ;
+        rdf:type sh:PropertyShape;
+        sh:name "Publisher" ;
+        sh:description "The Person or Organization that published this data model."@en ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path schema:datePublished ;
+        rdf:type sh:PropertyShape;
+        sh:name "Publication Date" ;
+        sh:description "DateTime of first publication."@en ;
+        sh:datatype xsd:date ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
+        sh:path schema:fileFormat ;
+        rdf:type sh:PropertyShape;
+        sh:name "File Format" ;
+        sh:description "Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content. S3M models are in Turtle format 'text/turtle'."@en ;
+        sh:datatype schema:Text ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] .
+
 
 s3m:XdAnyShape a sh:NodeShape ;
     sh:targetClass s3m:XdAny ;
@@ -1191,57 +1241,3 @@ s3m:DataModelShape a sh:NodeShape ;
                 ]
         ] .
 
-
-s3m:MetaDataShape a sh:NodeShape ;
-    sh:targetClass s3m:metaData ;
-    rdfs:label "Data Model Metadata" ;
-    rdfs:comment "Schema.org CreativeWork Metadata about the origins of the Data Model (DM)."@en ;
-
-    sh:property [
-        sh:path schema:author ;
-        rdf:type sh:PropertyShape;
-        sh:name "Author" ;
-        sh:description "The Person that is the author of this data model."@en ;
-        sh:datatype schema:Person ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
-
-    sh:property [
-        sh:path schema:license ;
-        rdf:type sh:PropertyShape;
-        sh:name "License" ;
-        sh:description "A license document that applies to this content, indicated by URL."@en ;
-        sh:datatype schema:URL ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
-
-    sh:property [
-        sh:path schema:publisher ;
-        rdf:type sh:PropertyShape;
-        sh:name "Publisher" ;
-        sh:description "The Person or Organization that published this data model."@en ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
-
-    sh:property [
-        sh:path schema:datePublished ;
-        rdf:type sh:PropertyShape;
-        sh:name "Publication Date" ;
-        sh:description "DateTime of first publication."@en ;
-        sh:datatype xsd:date ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
-
-    sh:property [
-        sh:path schema:fileFormat ;
-        rdf:type sh:PropertyShape;
-        sh:name "File Format" ;
-        sh:description "Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content. S3M models are in Turtle format 'text/turtle'."@en ;
-        sh:datatype schema:Text ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
