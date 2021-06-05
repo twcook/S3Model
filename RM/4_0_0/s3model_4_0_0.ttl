@@ -1293,9 +1293,12 @@ s3m:longitude rdf:type rdf:property ;
 s3m:XdBoolean a owl:Class ;
   rdfs:label "XdBoolean" ;
   rdfs:subClassOf s3m:XdAny .
-s3m:trueValues rdf:type rdf:property .
-s3m:falseValuesd f:type rdf:property .
-s3m:chosenValue f:type rdf:property .
+s3m:trueValues rdf:type rdf:property ;
+    rdfs:range s3m:XdBoolean .
+s3m:falseValuesd f:type rdf:property ;
+    rdfs:range s3m:XdBoolean .
+s3m:chosenValue f:type rdf:property ;
+    rdfs:range s3m:XdBoolean .
  
  
 s3m:XdLink
