@@ -12,6 +12,8 @@ PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX dash: <http://datashapes.org/dash#> 
 PREFIX schema: <http://schema.org/>
 
+
+
 s3m:ReferenceModel a rdfs:Class ;
   rdfs:label "Reference Model" .
 s3m:version rdf:type rdf:property. 
