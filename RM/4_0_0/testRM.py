@@ -13,7 +13,7 @@ conforms, results_graph, results_text = r
 print('============')
 print('============')
 print('============')
-print('Results Graph: ', '/n', results_graph)
+# print('Results Graph: ', '/n', results_graph)
 print('============')
 print('Results Text: ', results_text)
 print('============')

@@ -12,6 +12,8 @@ PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX dash: <http://datashapes.org/dash#> 
 PREFIX schema: <http://schema.org/>
 
+<https://www.s3model.com/ns/s3m/> owl:imports <http://datashapes.org/dash> .
+
 s3m:MetaDataShape a sh:NodeShape ;
     sh:targetClass s3m:metaData ;
     rdfs:label "Data Model Metadata" ;
@@ -76,13 +78,13 @@ s3m:XdAnyShape a sh:NodeShape ;
     rdfs:comment "Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:XdLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
+        sh:name "Xd Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
+        sh:minCount 1 ;
         ] ;
 
     sh:property [
@@ -161,7 +163,7 @@ s3m:XdAnyShape a sh:NodeShape ;
         sh:minCount 0 ;
         ] .
 
-# TODO: Add a function to determine if the chosen value is true or false.
+# TODO: Add a function to determine if the chosen value is True, False ot Invlaid (not in a list).
 s3m:XdBooleanShape a sh:NodeShape ;
     sh:targetClass s3m:XdBoolean ;
     rdfs:subClassOf s3m:XdAnyShape ;
@@ -504,7 +506,7 @@ s3m:XdCountShape a sh:NodeShape ;
         rdf:type sh:PropertyShape;
         sh:name "XdCount Units" ;
         sh:description "The name or type of the items counted. Examples are cigarettes, drinks, pregnancies, episodes, widgets, etc. May or may not come from a standard terminology."@en ;
-        sh:node s3m:XdStringShape ;
+        sh:node s3m:XdString ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
         ] .
@@ -763,6 +765,16 @@ s3m:ReferenceRangeShape a sh:NodeShape ;
     rdfs:comment "Defines a named range to be associated with any ORDERED datatype. Each such range is sensitive to the context, e.g. sex, age, location, and any other factor which affects ranges. May be used to represent high, low, normal, therapeutic, dangerous, critical, etc. ranges that are constrained by an interval."@en ;
 
     sh:property [
+        sh:path s3m:ReferenceRangeLabel ;
+        rdf:type sh:PropertyShape;
+        sh:name "Reference Range Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        ] ;
+
+    sh:property [
         sh:path s3m:definition ;
         rdf:type sh:PropertyShape;
         sh:name "Definition" ;
@@ -799,10 +811,10 @@ s3m:AuditShape a sh:NodeShape ;
     rdfs:comment "Provides a mechanism to identify the who/where/when tracking of instances as they move from system to system."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:AuditLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model."@en ;
+        sh:name "Audit Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -855,10 +867,10 @@ s3m:PartyShape a sh:NodeShape ;
     rdfs:comment "Description of a party, including an optional external link to data for this party in a demographic or other identity management system. An additional details element provides for the inclusion of information related to this party directly. If the party information is to be anonymous then do not include the details element."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:PartyLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model."@en ;
+        sh:name "Party Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -901,10 +913,10 @@ s3m:AttestationShape a sh:NodeShape ;
     rdfs:comment "Record an attestation by a party of the DM content. The type of attestation is recorded by the reason attribute, which my be coded."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:AttestationLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model."@en ;
+        sh:name "Attestation Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -978,10 +990,10 @@ s3m:ParticipationShape a sh:NodeShape ;
     rdfs:comment "Model of a participation of a Party (any Actor or Role) in an activity. Used to represent any participation of a Party in some activity, which is not explicitly in the model, e.g. assisting nurse. Can be used to record past or future participations."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:ParticipationLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model."@en ;
+        sh:name "Participation Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -1045,10 +1057,10 @@ s3m:ClusterShape a sh:NodeShape ;
     rdfs:comment "The grouping component, which may contain further instances of itself or any eXtended datatype, in an ordered list. This can serve as the root component for arbitrarily complex structures."@en ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:ClusterLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this datatype model."@en ;
+        sh:name "Cluster Label" ;
+        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -1095,10 +1107,10 @@ s3m:DataModelShape a sh:NodeShape ;
         ] ;
 
     sh:property [
-        sh:path s3m:label ;
+        sh:path s3m:DataModelLabel ;
         rdf:type sh:PropertyShape;
-        sh:name "Label" ;
-        sh:description "Descriptive name of this data model."@en ;
+        sh:name "Data Model Label" ;
+        sh:description "Descriptive name of this data model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
