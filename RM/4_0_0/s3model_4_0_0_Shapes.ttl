@@ -18,55 +18,52 @@ s3m:MetaDataShape a sh:NodeShape ;
     sh:targetClass s3m:metaData ;
     rdfs:label "Data Model Metadata" ;
     rdfs:comment "Schema.org CreativeWork Metadata about the origins of the Data Model (DM)."@en ;
+    sh:property s3m:MetaDataShape_author ;
+    sh:property s3m:MetaDataShape_license ;
+    sh:property s3m:MetaDataShape_publisher ;
+    sh:property s3m:MetaDataShape_datePublished ;
+    sh:property s3m:MetaDataShape_fileFormat .
 
-    sh:property [
+    s3m:MetaDataShape_author a sh:PropertyShape ;
         sh:path schema:author ;
         rdf:type sh:PropertyShape;
         sh:name "Author" ;
         sh:description "The Person that is the author of this data model."@en ;
         sh:datatype schema:Person ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:MetaDataShape_license a sh:PropertyShape ;
         sh:path schema:license ;
-        rdf:type sh:PropertyShape;
         sh:name "License" ;
         sh:description "A license document that applies to this content, indicated by URL."@en ;
         sh:datatype schema:URL ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
+        
 
-    sh:property [
+    s3m:MetaDataShape_publisher a sh:PropertyShape ;
         sh:path schema:publisher ;
-        rdf:type sh:PropertyShape;
         sh:name "Publisher" ;
         sh:description "The Person or Organization that published this data model."@en ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:MetaDataShape_datePublished a sh:PropertyShape ;
         sh:path schema:datePublished ;
-        rdf:type sh:PropertyShape;
         sh:name "Publication Date" ;
         sh:description "DateTime of first publication."@en ;
         sh:datatype xsd:date ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:MetaDataShape_fileFormat a sh:PropertyShape ;
         sh:path schema:fileFormat ;
-        rdf:type sh:PropertyShape;
         sh:name "File Format" ;
         sh:description "Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content. S3M models are in Turtle format 'text/turtle'."@en ;
         sh:datatype schema:Text ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 
 s3m:XdAnyShape a sh:NodeShape ;
@@ -74,71 +71,67 @@ s3m:XdAnyShape a sh:NodeShape ;
     dash:abstract true ;
     rdfs:label "XdAny Shape" ;
     rdfs:comment "Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model."@en ;
+    sh:property s3m:XdAnyShape_XdLabel ;
+    sh:property s3m:XdAnyShape_act ;
+    sh:property s3m:XdAnyShape_vtb ;
+    sh:property s3m:XdAnyShape_vte ;
+    sh:property s3m:XdAnyShape_tr ;
+    sh:property s3m:XdAnyShape_modified ;
+    sh:property s3m:XdAnyShape_latitude ;
+    sh:property s3m:XdAnyShape_longitude ;
+    sh:property s3m:XdAnyShape_altitude .
 
-    sh:property [
+    s3m:XdAnyShape_XdLabel a sh:PropertyShape ;
         sh:path s3m:XdLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Xd Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:XdAnyShape_act a sh:PropertyShape ;
         sh:path s3m:act ;
-        rdf:type sh:PropertyShape;
         sh:name "Access Control Tag" ;
         sh:description "Access Control Tag. If this is used it must contain a valid term from the Access Control System linked to by the containing Data Model."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_vtb a sh:PropertyShape ;
         sh:path s3m:vtb ;
-        rdf:type sh:PropertyShape;
         sh:name "Valid Time Begin" ;
         sh:description "If present this must be a valid datetime including timezone. It is used to indicate the beginning time that information is considered valid."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
        
-    sh:property [
+    s3m:XdAnyShape_vte a sh:PropertyShape ;
         sh:path s3m:vte ;
-        rdf:type sh:PropertyShape;
         sh:name "Valid Time End" ;
         sh:description "If present this must be a valid date-time including timezone. It is used to indicate the ending time that information is considered valid or the time the information expired or will expire."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_tr a sh:PropertyShape ;
         sh:path s3m:tr ;
-        rdf:type sh:PropertyShape;
         sh:name "Time Recorded" ;
         sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was recorded."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_modified a sh:PropertyShape ;
         sh:path s3m:modified ;
-        rdf:type sh:PropertyShape;
         sh:name "Time Modified" ;
         sh:description "If present this must be a valid date-time stamp. It is used to indicate the the actual date and time the data was last changed."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_latitude a sh:PropertyShape ;
         sh:path s3m:latitude ;
-        rdf:type sh:PropertyShape;
         sh:name "Latitude" ;
         sh:description "Latitude in decimal format. Value range -90.000000 to 90.000000."@en ;
         dash:coExistsWith s3m:longitude ;
@@ -146,12 +139,10 @@ s3m:XdAnyShape a sh:NodeShape ;
         sh:minInclusive -90.000000 ;
         sh:maxInclusive 90.000000 ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_longitude a sh:PropertyShape ;
         sh:path s3m:longitude ;
-        rdf:type sh:PropertyShape;
         sh:name "Longitude" ;
         sh:description "Longitude in decimal format. Value range -180.000000 to 180.000000."@en ;
         dash:coExistsWith s3m:latitude ;
@@ -159,19 +150,16 @@ s3m:XdAnyShape a sh:NodeShape ;
         sh:minInclusive -180.000000 ;
         sh:maxInclusive 180.000000 ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdAnyShape_altitude a sh:PropertyShape ;
         sh:path s3m:altitude ;
-        rdf:type sh:PropertyShape;
         sh:name "Altitude" ;
         sh:description "Altitude in feet."@en ;
         dash:coExistsWith s3m:latitude ;
         sh:datatype xsd:integer ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 # TODO: Add a function to determine if the chosen value is True, False ot Invlaid (not in a list).
 s3m:XdBooleanShape a sh:NodeShape ;
@@ -179,74 +167,69 @@ s3m:XdBooleanShape a sh:NodeShape ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdBoolean Shape" ;
     rdfs:comment "An enumerated type which represents boolean decisions. Such as true/false or yes/no answers. Useful where it is essential to devise the meanings (often questions in subjective data) carefully so that the only allowed result values result in one the options; true or false but are presented to the user as a list of options. The possible choices for True or False are enumerations in the DM. The reference model defines 'true-value' and 'false-value' in an sh:xone so only one or the other may be present in the instance data."@en ;
+    sh:property s3m:XdBooleanShape_trueValues ;
+    sh:property s3m:XdBooleanShape_falseValues ;
+    sh:property s3m:XdBooleanShape_chosenValue .
 
-    sh:property [
+    s3m:XdBooleanShape_trueValues a sh:PropertyShape ;
         sh:path s3m:trueValues ;
-        rdf:type sh:PropertyShape;
         sh:name "True Values" ;
         sh:description "A list with one or more strings that represents a boolean True in the implementation."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype xsd:string ;
-                ]
-        ] ;
+                ] .
 
-    sh:property [
+    s3m:XdBooleanShape_falseValues a sh:PropertyShape ;
         sh:path s3m:falseValues ;
-        rdf:type sh:PropertyShape;
         sh:name "False Values" ;
         sh:description "A list with one or more strings that represents a boolean False in the implementation."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype xsd:string ;
-                ]
-        ] ;
+                ] .
 
-    sh:property [
+    s3m:XdBooleanShape_chosenValue a sh:PropertyShape ;
         sh:path s3m:chosenValue ;
-        rdf:type sh:PropertyShape;
         sh:name "Chosen Value" ;
         sh:description "In the implementation this property holds the value from one of the two lists." ;
-        sh:datatype xsd:string ;
-        ] .
+        sh:datatype xsd:string .
+
 
 s3m:XdLinkShape a sh:NodeShape ;
     sh:targetClass s3m:XdLink ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdLink Shape" ;
     rdfs:comment "Used to specify a Universal Resource Identifier. Set the pattern facet to accommodate your needs in the DM. Intended use is to provide a mechanism that can be used to link together Data Models. The relation element allows for the use of a descriptive the link with an optional URI pointing to the source vocabulary. In most usecases the modeler will define all three of these using the 'fixed' attribute. Other usecases will have the 'relation' and 'relation-uri' elements fixed and the application will provide the 'link-value'."@en ;
+    sh:property s3m:XdLinkShape_link ;
+    sh:property s3m:XdAnyShape_relation ;
+    sh:property s3m:XdAnyShape_relationURI .
 
-    sh:property [
+    s3m:XdLinkShape_link a sh:PropertyShape ;
         sh:path s3m:link ;
-        rdf:type sh:PropertyShape;
         sh:name "Link" ;
         sh:description "A dereferenceable (or not) URL to another CMC or other model like entity."@en ;
         sh:datatype xsd:anyURI ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:XdLinkShape_relation a sh:PropertyShape ;
         sh:path s3m:relation ;
-        rdf:type sh:PropertyShape;
         sh:name "Relation" ;
         sh:description "A required term, normally drawn from a vocabulary or ontology such as the OBO RO."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:XdLinkShape_relationURI a sh:PropertyShape ;
         sh:path s3m:relationUri ;
-        rdf:type sh:PropertyShape;
         sh:name "Relation URI" ;
         sh:description "A URI where the definition of the relation element term can be found. Normally points to an ontology such as the OBO RO http://purl.obolibrary.org/obo/ro.owl"@en ;
         sh:datatype xsd:anyURI ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:XdStringShape a sh:NodeShape ;
     sh:targetClass s3m:XdString ;
