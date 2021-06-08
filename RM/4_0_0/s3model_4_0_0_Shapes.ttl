@@ -259,116 +259,105 @@ s3m:XdFileShape a sh:NodeShape ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdFile Shape" ;
     rdfs:comment "A type to use for encapsulated content (aka. files) for image, audio and other media types with a defined MIME type. This type provides a choice of embedding the content into the data or using a URL to point to the content."@en ;
+    sh:property s3m:size ;
+    sh:property s3m:encoding ;
+    sh:property s3m:xdfileLanguage ;
+    sh:property s3m:mediaType ;
+    sh:property s3m:formalism ;
+    sh:property s3m:compressionType ;
+    sh:property s3m:hashResult ;
+    sh:property s3m:hashFunction ;
+    sh:property s3m:altText ;
+    sh:property s3m:uri ;
+    sh:property s3m:mediaContent .
 
-    sh:property [
+    s3m:size a sh:PropertyShape ;
         sh:path s3m:size ;
-        rdf:type sh:PropertyShape;
         sh:name "Size" ;
         sh:description "Original size in bytes of unencoded encapsulated data. I.e. encodings such as base64, hexadecimal, etc. do not change the value of this element."@en ;
         sh:datatype xsd:integer ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:encoding a sh:PropertyShape ;
         sh:path s3m:encoding ;
-        rdf:type sh:PropertyShape;
         sh:name "Encoding" ;
         sh:description "Name of character encoding scheme in which this value is encoded. Coded from the IANA charcater set table: http://www.iana.org/assignments/character-sets Unicode is the default assumption in S3Model, with UTF-8 being the assumed encoding. This element allows for variations from these assumptions."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:xdfileLanguage a sh:PropertyShape ;
         sh:path s3m:xdfileLanguage ;
-        rdf:type sh:PropertyShape;
         sh:name "String Language" ;
         sh:description "Optional indicator of the localised language of the content. Typically remains optional in the CMC and used at runtime when the content is in a different language from the enclosing CMC."@en ;
         sh:datatype xsd:language ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:mediaType a sh:PropertyShape ;
         sh:path s3m:mediaType ;
-        rdf:type sh:PropertyShape;
         sh:name "Media Type" ;
         sh:description "Media (MIME) type of the original media-content w/o any compression. See IANA registered types: http://www.iana.org/assignments/media-types/media-types.xhtml"@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:formalism a sh:PropertyShape ;
         sh:path s3m:formalism ;
-        rdf:type sh:PropertyShape;
         sh:name "Formalism" ;
         sh:description "Name of the formalism or syntax used to inform an application regarding a candidate parser to use on the content. Examples might include: 'ATL', 'MOLA', 'QVT', 'GDL', 'GLIF', etc."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:compressionType a sh:PropertyShape ;
         sh:path s3m:compressionType ;
-        rdf:type sh:PropertyShape;
         sh:name "Compression Type" ;
         sh:description "Compression/archiving mime-type. If this elements does not exist then it means there is no compression/archiving. For a list of common mime-types for compression/archiving see: http://en.wikipedia.org/wiki/List_of_archive_formats."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:hashResult a sh:PropertyShape ;
         sh:path s3m:hashResult ;
-        rdf:type sh:PropertyShape;
         sh:name "HASH Result" ;
         sh:description "Hash function result of the 'media-content'. There must be a corresponding hash function type listed for this to have any meaning. See: http://en.wikipedia.org/wiki/List_of_hash_functions#Cryptographic_hash_functions"@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:hashFunction a sh:PropertyShape ;
         sh:path s3m:hashFunction ;
-        rdf:type sh:PropertyShape;
         sh:name "HASH Function" ;
         sh:description "Hash function used to compute hash-result. See: http://en.wikipedia.org/wiki/List_of_hash_functions#Cryptographic_hash_functions"@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:altText a sh:PropertyShape ;
         sh:path s3m:altText ;
-        rdf:type sh:PropertyShape;
         sh:name "Alt Text" ;
         sh:description "Text to display in lieu of multimedia display or execution."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:uri a sh:PropertyShape ;
         sh:path s3m:uri ;
-        rdf:type sh:PropertyShape;
         sh:name "URI" ;
         sh:description "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference."@en ;
         sh:datatype xsd:anyURI ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:mediaContent a sh:PropertyShape ;
         sh:path s3m:mediaContent ;
-        rdf:type sh:PropertyShape;
         sh:name "Media Content" ;
         sh:description "he content, if stored locally. The CMC modeler chooses either a uri or local content element."@en ;
         sh:datatype xsd:base64Binary ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:XdOrderedShape a sh:NodeShape ;
     sh:targetClass s3m:XdOrdered ;
@@ -376,28 +365,26 @@ s3m:XdOrderedShape a sh:NodeShape ;
     dash:abstract true ;
     rdfs:label "XdOrdered Shape" ;
     rdfs:comment "Abstract type defining the concept of ordered values, which includes ordinals as well as true quantities. The implementations require the functions ‘&lt;’, '&gt;' and is_strictly_comparable_to ('==')."@en ;
+    sh:property s3m:ranges ;
+    sh:property s3m:normalStatus .
 
-    sh:property [
+    s3m:ranges a sh:PropertyShape ;
         sh:path s3m:ranges ;
-        rdf:type sh:PropertyShape;
         sh:name "Ranges" ;
         sh:description "Optional list of ReferenceRanges for this value in its particular measurement context."@en ;
         sh:node dash:ListShape ;
         sh:property [
             sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
             sh:datatype s3m:ReferenceRange ;
-            ]
-        ] ;
+            ] .
 
-    sh:property [
+    s3m:normalStatus a sh:PropertyShape ;
         sh:path s3m:normalStatus ;
-        rdf:type sh:PropertyShape;
         sh:name "Normal Status" ;
         sh:description "Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL, etc."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 # TODO: Add a function/constraint to insure that the ordinal and symbol lists are the same length.
 
@@ -406,829 +393,742 @@ s3m:XdOrdinalShape a sh:NodeShape ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     rdfs:label "XdOrdinal Shape" ;
     rdfs:comment "Models rankings and scores, e.g., pain, Apgar values, educational level, and the Likert Scale."@en ;
+    sh:property s3m:ordinals ;
+    sh:property s3m:symbols .
 
-    sh:property [
+    s3m:ordinals a sh:PropertyShape ;
         sh:path s3m:ordinals ;
-        rdf:type sh:PropertyShape;
         sh:name "Ordinals" ;
         sh:description "Value in ordered enumeration of values. The base integer is zero with any number of integer values used to order the symbols. Example 1: 0 = Trace, 1 = +, 2 = ++, 3 = +++, etc. Example 2: 0 = Mild, 1 = Moderate, 2 = Severe."@en ;
         sh:node dash:ListShape ;
         sh:property [
             sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
             sh:datatype xsd:decimals ;
-            ]
-        ] ;
+            ] .
 
-    sh:property [
+    s3m:symbols a sh:PropertyShape ;
         sh:path s3m:symbols ;
-        rdf:type sh:PropertyShape;
         sh:name "Symbols" ;
         sh:description "Coded textual representation of this value in the enumeration, which may be strings made from + symbols, or other enumerations of terms such as mild, moderate, severe, or even the same number series as the values, e.g. 1, 2, 3."@en ;
         sh:node dash:ListShape ;
         sh:property [
             sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
             sh:datatype xsd:string ;
-            ]
-        ] .
+            ] .
 
 s3m:XdQuantifiedShape a sh:NodeShape ;
     sh:targetClass s3m:XdQuantified ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     dash:abstract true ;
-    rdfs:label "XdOrdinal Shape" ;
-    rdfs:comment ""@en ;
+    rdfs:label "XdQuantified Shape" ;
+    rdfs:comment "Abstract type defining the concept of true quantified values, i.e. values which are not only ordered, but which have a precise magnitude."@en ;
+    sh:property s3m:magnitudeStatus ;
+    sh:property s3m:error ;
+    sh:property s3m:accuracy .
 
-    sh:property [
+    s3m:magnitudeStatus a sh:PropertyShape ;
         sh:path s3m:magnitudeStatus ;
-        rdf:type sh:PropertyShape;
         sh:name "Magnitude Status" ;
         sh:description "Optional status of magnitude."@en ;
-        sh:node dash:ListShape ;
-            s3m:magnitudeStatus ( "equal" "less_than" "greater_than" "less_than_or_equal" "greater_than_or_equal" "approximate" )
-        ] ;
+        sh:node dash:ListShape  ;
+            s3m:magnitudeStatus ( "equal" "less_than" "greater_than" "less_than_or_equal" "greater_than_or_equal" "approximate" ) .
 
-    sh:property [
+    s3m:error a sh:PropertyShape ;
         sh:path s3m:error ;
-        rdf:type sh:PropertyShape;
         sh:name "Error" ;
         sh:description "Error margin of measurement, indicating error in the recording method or instrument (+/- %). A logical value of 0 indicates 100% accuracy, i.e. no error."@en ;
         sh:datatype xsd:integer ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:accuracy a sh:PropertyShape ;
         sh:path s3m:accuracy ;
-        rdf:type sh:PropertyShape;
         sh:name "Accuracy" ;
         sh:description "Accuracy of the value in the magnitude attribute in the range 0% to (+/-)100%. A value of 0 means that the accuracy is unknown."@en ;
         sh:datatype xsd:decimal ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:XdCountShape a sh:NodeShape ;
     sh:targetClass s3m:XdCount ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdCount Shape" ;
     rdfs:comment "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day, etc. The thing(s) being counted must be represented in the units element. Misuse:Not used for amounts of physical entities (which all have standardized units)."@en ;
+    sh:property s3m:xdcountValue ;
+    sh:property s3m:xdcountUnits .
 
-    sh:property [
+    s3m:xdcountValue a sh:PropertyShape ;
         sh:path s3m:xdcountValue ;
-        rdf:type sh:PropertyShape;
         sh:name "XdCount Value" ;
         sh:description "Integer value of the counted items."@en ;
         sh:datatype xsd:integer ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
     
-    sh:property [
+    s3m:xdcountUnits a sh:PropertyShape ;
         sh:path s3m:xdcountUnits ;
-        rdf:type sh:PropertyShape;
         sh:name "XdCount Units" ;
         sh:description "The name or type of the items counted. Examples are cigarettes, drinks, pregnancies, episodes, widgets, etc. May or may not come from a standard terminology."@en ;
         sh:node s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 s3m:XdQuantityShape a sh:NodeShape ;
     sh:targetClass s3m:XdQuantity ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdQuantity Shape" ;
     rdfs:comment "Quantified type representing specific quantities, i.e. quantities expressed as a magnitude and units. Can also be used for time durations, where it is more convenient to treat these as simply a number of individual seconds, minutes, hours, days, months, years, etc. when no temporal calculation is to be performed."@en ;
+    sh:property s3m:xdquantityValue ;
+    sh:property s3m:xdquantityUnits .
 
-    sh:property [
+    s3m:xdquantityValue a sh:PropertyShape ;
         sh:path s3m:xdquantityValue ;
-        rdf:type sh:PropertyShape;
         sh:name "XdQuantity Value" ;
         sh:description "Numeric decimal value of the quantity."@en ;
         sh:datatype xsd:decimal ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
     
-    sh:property [
+    s3m:xdquantityUnits a sh:PropertyShape ;
         sh:path s3m:xdquantityUnits ;
-        rdf:type sh:PropertyShape;
         sh:name "XdQuantity Units" ;
         sh:description "The name or type of the quantity. Examples are 'kg', 'mmHg', 'ms-1', 'km/h'. Should come from a standard terminology."@en ;
         sh:node s3m:XdStringShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 s3m:XdFloatShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
     rdfs:subClassOf s3m:XdQuantifiedShape ;
     rdfs:label "XdFloat Shape" ;
     rdfs:comment "Quantified type representing specific a value as a floating point (64 bit) number and optional units."@en ;
+    sh:property s3m:xdfloatValue ;
+    sh:property s3m:xdfloatUnits .
 
-    sh:property [
+    s3m:xdfloatValue a sh:PropertyShape ;
         sh:path s3m:xdfloatValue ;
-        rdf:type sh:PropertyShape;
         sh:name "XdFloat Value" ;
         sh:description "Float value. This type accepts several 'special' values: positive zero (0), negative zero (-0) (which is greater than positive 0 but less than any negative value), infinity (INF) (which is greater than any value), negative infinity (-INF) (which is less than any float, and 'not a number' (NaN)"@en ;
         sh:datatype xsd:double ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
     
-    sh:property [
+    s3m:xdfloatUnits a sh:PropertyShape ;
         sh:path s3m:xdfloatUnits ;
-        rdf:type sh:PropertyShape;
         sh:name "XdFloat Units" ;
         sh:description "The name or type of the float value. May or may not come from a standardized vocabulary."@en ;
         sh:node s3m:XdStringShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 s3m:XdTemporalShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
     rdfs:subClassOf s3m:XdOrderedShape ;
     rdfs:label "XdTemporal Shape" ;
     rdfs:comment "Type defining the concept of date and time types. This gives the modeler the ability to optionally allow full or partial dates at run time. Only one of the types are allowed in instance data."@en ;
-    sh:xone (
+    sh:property s3m:xdtemporalDate ;
+    sh:property s3m:xdtemporalTime ;
+    sh:property s3m:xdtemporalDateTime ;
+    sh:property s3m:xdtemporalDay ;
+    sh:property s3m:xdtemporalMonth ;
+    sh:property s3m:xdtemporalYear ;
+    sh:property s3m:xdtemporalYearMonth ;
+    sh:property s3m:xdtemporalMonthDay ;
+    sh:property s3m:xdtemporalDuration .
 
-        [ sh:property [
-            sh:path s3m:xdtemporalDate ;
-            rdf:type sh:PropertyShape;
-            sh:name "Date Value" ;
-            sh:description "Represents top-open intervals of exactly one day in length on the timelines of dateTime, beginning on the beginning moment of each day, up to but not including the beginning moment of the next day). For non-timezoned values, the top-open intervals disjointly cover the non-timezoned timeline, one per day. For timezoned values, the intervals begin at every minute and therefore overlap."@en ;
-            sh:datatype xsd:Date ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
+    s3m:xdtemporalDate a sh:PropertyShape ;
+        sh:path s3m:xdtemporalDate ;
+        sh:name "Date Value" ;
+        sh:description "Represents top-open intervals of exactly one day in length on the timelines of dateTime, beginning on the beginning moment of each day, up to but not including the beginning moment of the next day). For non-timezoned values, the top-open intervals disjointly cover the non-timezoned timeline, one per day. For timezoned values, the intervals begin at every minute and therefore overlap."@en ;
+        sh:datatype xsd:Date ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
 
-        [ sh:property [
-            sh:path s3m:xdtemporalTime ;
-            rdf:type sh:PropertyShape;
-            sh:name "Time Value" ;
-            sh:description "Represents instants of time that recur at the same point in each calendar day, or that occur in some arbitrary calendar day."@en ;
-            sh:datatype xsd:time ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalDateTime ;
-            rdf:type sh:PropertyShape;
-            sh:name "DateTime Value" ;
-            sh:description "Represents instants of time, optionally marked with a particular time zone offset. Values representing the same instant but having different time zone offsets are equal but not identical."@en ;
-            sh:datatype xsd:dateTime ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalDay ;
-            rdf:type sh:PropertyShape;
-            sh:name "Day Value" ;
-            sh:description "Represents whole days within an arbitrary month—days that recur at the same point in each (Gregorian) month. This datatype is used to represent a specific day of the month. To indicate, for example, that an employee gets a paycheck on the 15th of each month. (Obviously, days beyond 28 cannot occur in all months; they are nonetheless permitted, up to 31.)"@en ;
-            sh:datatype xsd:gDay ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalMonth ;
-            rdf:type sh:PropertyShape;
-            sh:name "Month Value" ;
-            sh:description "Represents whole (Gregorian) months within an arbitrary year—months that recur at the same point in each year. It might be used, for example, to say what month annual Thanksgiving celebrations fall in different countries (--11 in the United States, --10 in Canada, and possibly other months in other countries)."@en ;
-            sh:datatype xsd:gMonth ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalYear ;
-            rdf:type sh:PropertyShape;
-            sh:name "Year Value" ;
-            sh:description "Represents Gregorian calendar years."@en ;
-            sh:datatype xsd:gYear ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalYearMonth ;
-            rdf:type sh:PropertyShape;
-            sh:name "Year-Month Value" ;
-            sh:description "Represents specific whole Gregorian months in specific Gregorian years. (YYYY-MM)"@en ;
-            sh:datatype xsd:gYearMonth ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalMonthDay ;
-            rdf:type sh:PropertyShape;
-            sh:name "Month-Day Value" ;
-            sh:description "Represents whole calendar days that recur at the same point in each calendar year, or that occur in some arbitrary calendar year. (Obviously, days beyond 28 cannot occur in all Februaries; 29 is nonetheless permitted.) Format as MM-DD"@en ;
-            sh:datatype xsd:gMonthDay ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
-        [ sh:property [
-            sh:path s3m:xdtemporalDuration ;
-            rdf:type sh:PropertyShape;
-            sh:name "Duration Value" ;
-            sh:description "A datatype that represents durations of time. The concept of duration being captured is drawn from those of [ISO 8601], specifically durations without fixed endpoints. For example, 15 days' (whose most common lexical representation in duration is 'P15D') is a duration value; '15 days beginning 12 July 1995' and '15 days ending 12 July 1995' are not duration values. This datatype can provide addition and subtraction operations between duration values and between duration/dateTime value pairs, and can be the result of subtracting dateTime values."@en ;
-            sh:datatype xsd:duration ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            ] 
-        ]
+    s3m:xdtemporalTime a sh:PropertyShape ;
+        sh:path s3m:xdtemporalTime ;
+        sh:name "Time Value" ;
+        sh:description "Represents instants of time that recur at the same point in each calendar day, or that occur in some arbitrary calendar day."@en ;
+        sh:datatype xsd:time ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
 
-    ) .
+    s3m:xdtemporalDateTime a sh:PropertyShape ;
+        sh:path s3m:xdtemporalDateTime ;
+        sh:name "DateTime Value" ;
+        sh:description "Represents instants of time, optionally marked with a particular time zone offset. Values representing the same instant but having different time zone offsets are equal but not identical."@en ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalDay a sh:PropertyShape ;
+        sh:path s3m:xdtemporalDay ;
+        sh:name "Day Value" ;
+        sh:description "Represents whole days within an arbitrary month—days that recur at the same point in each (Gregorian) month. This datatype is used to represent a specific day of the month. To indicate, for example, that an employee gets a paycheck on the 15th of each month. (Obviously, days beyond 28 cannot occur in all months; they are nonetheless permitted, up to 31.)"@en ;
+        sh:datatype xsd:gDay ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalMonth a sh:PropertyShape ;
+        sh:path s3m:xdtemporalMonth ;
+        sh:name "Month Value" ;
+        sh:description "Represents whole (Gregorian) months within an arbitrary year—months that recur at the same point in each year. It might be used, for example, to say what month annual Thanksgiving celebrations fall in different countries (--11 in the United States, --10 in Canada, and possibly other months in other countries)."@en ;
+        sh:datatype xsd:gMonth ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalYear a sh:PropertyShape ;
+        sh:path s3m:xdtemporalYear ;
+        sh:name "Year Value" ;
+        sh:description "Represents Gregorian calendar years."@en ;
+        sh:datatype xsd:gYear ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalYearMonth a sh:PropertyShape ;
+        sh:path s3m:xdtemporalYearMonth ;
+        sh:name "Year-Month Value" ;
+        sh:description "Represents specific whole Gregorian months in specific Gregorian years. (YYYY-MM)"@en ;
+        sh:datatype xsd:gYearMonth ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalMonthDay a sh:PropertyShape ;
+        sh:path s3m:xdtemporalMonthDay ;
+        sh:name "Month-Day Value" ;
+        sh:description "Represents whole calendar days that recur at the same point in each calendar year, or that occur in some arbitrary calendar year. (Obviously, days beyond 28 cannot occur in all Februaries; 29 is nonetheless permitted.) Format as MM-DD"@en ;
+        sh:datatype xsd:gMonthDay ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
+    s3m:xdtemporalDuration a sh:PropertyShape ;
+        sh:path s3m:xdtemporalDuration ;
+        sh:name "Duration Value" ;
+        sh:description "A datatype that represents durations of time. The concept of duration being captured is drawn from those of [ISO 8601], specifically durations without fixed endpoints. For example, 15 days' (whose most common lexical representation in duration is 'P15D') is a duration value; '15 days beginning 12 July 1995' and '15 days ending 12 July 1995' are not duration values. This datatype can provide addition and subtraction operations between duration values and between duration/dateTime value pairs, and can be the result of subtracting dateTime values."@en ;
+        sh:datatype xsd:duration ;
+        sh:maxCount 1 ;
+        sh:minCount 0 .
+
     
 s3m:XdIntervalShape a sh:NodeShape ;
     sh:targetClass s3m:XdInterval ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "XdInterval Shape" ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Generic type defining an interval (i.e. range) of comparable types. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities, etc. Whose datatypes are the same and are ordered. In S3Model, they are primarily used in defining reference ranges."@en ;
+    sh:property s3m:lower ;
+    sh:property s3m:upper ;
+    sh:property s3m:lowerIncluded ;
+    sh:property s3m:upperIncluded ;
+    sh:property s3m:lowerBounded ;
+    sh:property s3m:upperBounded ;
+    sh:property s3m:unitsName ;
+    sh:property s3m:unitsURI .
 
    
-    sh:property [
+    s3m:lower a sh:PropertyShape ;
         sh:path s3m:lower ;
-        rdf:type sh:PropertyShape;
         sh:name "Lower Value" ;
         sh:description "Defines the lower value of the interval. The type in defined in the model."@en ;
         sh:datatype xsd:anyType ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:upper a sh:PropertyShape ;
         sh:path s3m:upper ;
-        rdf:type sh:PropertyShape;
         sh:name "Upper Value" ;
         sh:description "Defines the upper value of the interval. The type in defined in the model."@en ;
         sh:datatype xsd:anyType ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:lowerIncluded a sh:PropertyShape ;
         sh:path s3m:lowerIncluded ;
-        rdf:type sh:PropertyShape;
         sh:name "Lower Included" ;
         sh:description "Is the lower value of the interval inclusive?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
         
-    sh:property [
+    s3m:upperIncluded a sh:PropertyShape ;
         sh:path s3m:upperIncluded ;
-        rdf:type sh:PropertyShape;
         sh:name "Upper Included" ;
         sh:description "Is the upper value of the interval inclusive?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
         
-    sh:property [
+    s3m:lowerBounded a sh:PropertyShape ;
         sh:path s3m:lowerBounded ;
-        rdf:type sh:PropertyShape;
         sh:name "Lower Bounded" ;
         sh:description "Is the lower value of the interval bounded?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
         
-    sh:property [
+    s3m:upperBounded a sh:PropertyShape ;
         sh:path s3m:upperBounded ;
-        rdf:type sh:PropertyShape;
         sh:name "Upper Bounded" ;
         sh:description "Is the upper value of the interval bounded?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
         
-    sh:property [
+    s3m:unitsName a sh:PropertyShape ;
         sh:path s3m:unitsName ;
-        rdf:type sh:PropertyShape;
         dash:coExistsWith s3m:unitsURI ;
         sh:name "Units Name" ;
         sh:description "An optional string representing the units of the interval. Units Name and Units URI must coexist."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:unitsURI a sh:PropertyShape ;
         sh:path s3m:unitsURI ;
-        rdf:type sh:PropertyShape;
         dash:coExistsWith s3m:unitsName ;
         sh:name "Units URI" ;
         sh:description "An optional URI to the definition of the units value. Units Name and Units URI must coexist."@en ;
         sh:datatype xsd:anyURI ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:ReferenceRangeShape a sh:NodeShape ;
     sh:targetClass s3m:ReferenceRange ;
     rdfs:subClassOf s3m:XdAnyShape ;
     rdfs:label "Reference Range Shape" ;
     rdfs:comment "Defines a named range to be associated with any ORDERED datatype. Each such range is sensitive to the context, e.g. sex, age, location, and any other factor which affects ranges. May be used to represent high, low, normal, therapeutic, dangerous, critical, etc. ranges that are constrained by an interval."@en ;
+    sh:property s3m:definition ;
+    sh:property s3m:interval ;
+    sh:property s3m:isNormal .
 
-    sh:property [
-        sh:path s3m:ReferenceRangeLabel ;
-        rdf:type sh:PropertyShape;
-        sh:name "Reference Range Label" ;
-        sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
-
-    sh:property [
+    s3m:definition a sh:PropertyShape ;
         sh:path s3m:definition ;
-        rdf:type sh:PropertyShape;
         sh:name "Definition" ;
         sh:description "Term whose value indicates the meaning of this range, e.g. 'normal', 'critical', 'therapeutic' etc."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:interval a sh:PropertyShape ;
         sh:path s3m:interval ;
-        rdf:type sh:PropertyShape;
         sh:name "Interval" ;
         sh:description "The data range for this reference range."@en ;
         sh:datatype s3m:XdInterval ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:isNormal a sh:PropertyShape ;
         sh:path s3m:isNormal ;
-        rdf:type sh:PropertyShape;
         sh:name "Is Normal Flag" ;
         sh:description "True if this reference range defines values that are considered to be normal. In the context of the value in the definition element."@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 
 s3m:AuditShape a sh:NodeShape ;
     sh:targetClass s3m:Audit ;
     rdfs:label "Audit Shape" ;
     rdfs:comment "Provides a mechanism to identify the who/where/when tracking of instances as they move from system to system."@en ;
+    sh:property s3m:AuditLabel ;
+    sh:property s3m:systemId ;
+    sh:property s3m:systemUser ;
+    sh:property s3m:location ;
+    sh:property s3m:timestamp .
 
-    sh:property [
+    s3m:AuditLabel a sh:PropertyShape ;
         sh:path s3m:AuditLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Audit Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:systemId a sh:PropertyShape ;
         sh:path s3m:systemId ;
-        rdf:type sh:PropertyShape;
         sh:name "System ID" ;
         sh:description "Identifier of systems which created or handled the information item. 'Systems' can also be defined as an individual application or a data repository in which the data was manipulated."@en ;
         sh:datatype s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:systemUser a sh:PropertyShape ;
         sh:path s3m:systemUser ;
-        rdf:type sh:PropertyShape;
         sh:name "System User" ;
         sh:description "True if this reference range defines values that are considered to be normal. In the context of the value in the definition element."@en ;
         sh:datatype xsd:XdParty ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:location a sh:PropertyShape ;
         sh:path s3m:location ;
-        rdf:type sh:PropertyShape;
         sh:name "Location" ;
         sh:description "Location information of the particular site/facility within an organisation which handled the item."@en ;
         sh:datatype s3m:Cluster ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:timestamp a sh:PropertyShape ;
         sh:path s3m:timestamp ;
-        rdf:type sh:PropertyShape;
         sh:name "Time Stamp" ;
         sh:description "Timestamp (dateTime) of handling the item."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 s3m:PartyShape a sh:NodeShape ;
     sh:targetClass s3m:Party ;
     rdfs:label "Party Shape" ;
     rdfs:comment "Description of a party, including an optional external link to data for this party in a demographic or other identity management system. An additional details element provides for the inclusion of information related to this party directly. If the party information is to be anonymous then do not include the details element."@en ;
+    sh:property s3m:PartyLabel ;
+    sh:property s3m:partyName ;
+    sh:property s3m:partyRef ;
+    sh:property s3m:partyDetails .
 
-    sh:property [
+    s3m:PartyLabel a sh:PropertyShape ;
         sh:path s3m:PartyLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Party Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:partyName a sh:PropertyShape ;
         sh:path s3m:partyName ;
-        rdf:type sh:PropertyShape;
         sh:name "Party Name" ;
         sh:description "Optional human-readable name (in String form)."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:partyRef a sh:PropertyShape ;
         sh:path s3m:partyRef ;
-        rdf:type sh:PropertyShape;
         sh:name "Party Ref" ;
         sh:description "Optional reference to more detailed demographic or identification information for this party, in an external system."@en ;
         sh:datatype xsd:XdLink ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:partyDetails a sh:PropertyShape ;
         sh:path s3m:partyDetails ;
-        rdf:type sh:PropertyShape;
         sh:name "Party Details" ;
         sh:description "A structured element for details about the party."@en ;
         sh:datatype s3m:Cluster ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:AttestationShape a sh:NodeShape ;
     sh:targetClass s3m:Attestation ;
     rdfs:label "Attestation Shape" ;
     rdfs:comment "Record an attestation by a party of the DM content. The type of attestation is recorded by the reason attribute, which my be coded."@en ;
+    sh:property s3m:AttestationLabel ;
+    sh:property s3m:view ;
+    sh:property s3m:proof ;
+    sh:property s3m:reason ;
+    sh:property s3m:committer ;
+    sh:property s3m:committed ;
+    sh:property s3m:pending .
 
-    sh:property [
+    s3m:AttestationLabel a sh:PropertyShape ;
         sh:path s3m:AttestationLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Attestation Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:view a sh:PropertyShape ;
         sh:path s3m:view ;
-        rdf:type sh:PropertyShape;
         sh:name "View" ;
         sh:description "Optional visual representation of content attested e.g. screen image."@en ;
         sh:datatype s3m:XdFile ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:proof a sh:PropertyShape ;
         sh:path s3m:proof ;
-        rdf:type sh:PropertyShape;
         sh:name "Proof" ;
         sh:description "Proof of attestation such as an GPG signature."@en ;
         sh:datatype xsd:XdFile ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:reason a sh:PropertyShape ;
         sh:path s3m:reason ;
-        rdf:type sh:PropertyShape;
         sh:name "Reason" ;
         sh:description "Reason of this attestation. Usually coded from a standardized vocabulary."@en ;
         sh:datatype s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:committer a sh:PropertyShape ;
         sh:path s3m:committer ;
-        rdf:type sh:PropertyShape;
         sh:name "Committer" ;
         sh:description "Identity of person who committed the item."@en ;
         sh:datatype s3m:Party ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:committed a sh:PropertyShape ;
         sh:path s3m:committed ;
-        rdf:type sh:PropertyShape;
         sh:name "Committed" ;
         sh:description "Timestamp of committal of the item."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:pending a sh:PropertyShape ;
         sh:path s3m:pending ;
-        rdf:type sh:PropertyShape;
         sh:name "Pending" ;
         sh:description "True if this attestation is outstanding; 'false' means it has been completed."@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] .
+        sh:minCount 1 .
 
 
 s3m:ParticipationShape a sh:NodeShape ;
     sh:targetClass s3m:Participation ;
     rdfs:label "Participation Shape" ;
     rdfs:comment "Model of a participation of a Party (any Actor or Role) in an activity. Used to represent any participation of a Party in some activity, which is not explicitly in the model, e.g. assisting nurse. Can be used to record past or future participations."@en ;
+    sh:property s3m:ParticipationLabel ;
+    sh:property s3m:performer ;
+    sh:property s3m:function ;
+    sh:property s3m:mode ;
+    sh:property s3m:start ;
+    sh:property s3m:end .
 
-    sh:property [
+    s3m:ParticipationLabel a sh:PropertyShape ;
         sh:path s3m:ParticipationLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Participation Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:performer a sh:PropertyShape ;
         sh:path s3m:performer ;
-        rdf:type sh:PropertyShape;
         sh:name "Performer" ;
         sh:description "The id and possibly demographic system link of the party that represents the primary provider of services in the activity."@en ;
         sh:datatype s3m:Party ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:function a sh:PropertyShape ;
         sh:path s3m:function ;
-        rdf:type sh:PropertyShape;
         sh:name "Function" ;
         sh:description "The function of the performer in this participation. In some applications this might be called a Role."@en ;
         sh:datatype xsd:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:mode a sh:PropertyShape ;
         sh:path s3m:mode ;
-        rdf:type sh:PropertyShape;
         sh:name "Mode" ;
         sh:description "The mode of the performer / activity interaction, e.g. present, by telephone, by email etc. If the participation is by device or software it may contain a protocol standard or interface definition."@en ;
         sh:datatype s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:start a sh:PropertyShape ;
         sh:path s3m:start ;
-        rdf:type sh:PropertyShape;
         sh:name "Start DateTime" ;
         sh:description "The beginning datetime when the participation took place."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:end a sh:PropertyShape ;
         sh:path s3m:end ;
-        rdf:type sh:PropertyShape;
         sh:name "End DateTime" ;
         sh:description "The ending datetime when the participation took place."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 # TODO: Does the sh:in allow for subclasses or do we have to list every Xd* class individually?
 s3m:ClusterShape a sh:NodeShape ;
     sh:targetClass s3m:Cluster ;
     rdfs:label "Cluster Shape" ;
     rdfs:comment "The grouping component, which may contain further instances of itself or any eXtended datatype, in an ordered list. This can serve as the root component for arbitrarily complex structures."@en ;
+    sh:property s3m:ClusterLabel ;
+    sh:property s3m:items .
 
-    sh:property [
+    s3m:ClusterLabel a sh:PropertyShape ;
         sh:path s3m:ClusterLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Cluster Label" ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:items a sh:PropertyShape ;
         sh:path s3m:items ;
-        rdf:type sh:PropertyShape;
         sh:name "Items" ;
         sh:description "List of Items which may be XdAny subclasses and/or other Clusters."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:oneOrMorePath rdf:rest ] rdf:first ) ;
-                sh:in (s3m:XdAny s3m:Cluster ) ;
+                sh:in (s3m:XdAnyShape s3m:ClusterShape ) ;
                 ] ;
-        sh:minCount 0 ;
-        ] .
+        sh:minCount 0 .
 
 s3m:DataModelShape a sh:NodeShape ;
     sh:targetClass s3m:dataModel ;
     rdfs:label "Data Model Shape" ;
     rdfs:comment "This is the root encapsulationg node of a Data Model (DM)."@en ;
+    sh:property s3m:cuid ;
+    sh:property s3m:metaData ;
+    sh:property s3m:dataModelLabel ;
+    sh:property s3m:dmLanguage ;
+    sh:property s3m:dmEncoding ;
+    sh:property s3m:currentState ;
+    sh:property s3m:structure ;
+    sh:property s3m:subject ;
+    sh:property s3m:provider ;
+    sh:property s3m:participation ;
+    sh:property s3m:protocol ;
+    sh:property s3m:workflow ;
+    sh:property s3m:acsLink ;
+    sh:property s3m:audit ;
+    sh:property s3m:attestation ;
+    sh:property s3m:links .
 
-    sh:property [
+    s3m:cuid a sh:PropertyShape ;
         sh:path s3m:cuid ;
-        rdf:type sh:PropertyShape;
         sh:name "CUID" ;
         sh:description "Collision-resistant id."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-
-    sh:property [
+    s3m:metaData a sh:PropertyShape ;
         sh:path s3m:metaData ;
-        rdf:type sh:PropertyShape;
         sh:name "Data Model MetaData" ;
         sh:description "Metadata about the origins of the data model."@en ;
-        sh:datatype s3m:metaData ;
+        sh:datatype s3m:metaDataShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:dataModelLabel a sh:PropertyShape ;
         sh:path s3m:dataModelLabel ;
-        rdf:type sh:PropertyShape;
         sh:name "Data Model Label" ;
         sh:description "Descriptive name of this data model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:defaultValue "Enter a label." ;
-        ] ;
+        sh:defaultValue "Enter a label." .
 
-    sh:property [
+    s3m:dmLanguage a sh:PropertyShape ;
         sh:path s3m:dmLanguage ;
-        rdf:type sh:PropertyShape;
         sh:name "Data Model Language" ;
         sh:description "Mandatory indicator of the localised language in which this DM is written. The value space of language is the set of all strings that are valid language identifiers as defined [RFC 3066]."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:dmEncoding a sh:PropertyShape ;
         sh:path s3m:dmEncoding ;
-        rdf:type sh:PropertyShape;
         sh:name "Data Model Encoding" ;
         sh:description "Name of character set encoding in which text values in this DM are encoded. Default is utf-8."@en ;
         sh:datatype xsd:string ;
         s3m:dmEncoding "UTF-8" ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:currentState a sh:PropertyShape ;
         sh:path s3m:currentState ;
-        rdf:type sh:PropertyShape;
         sh:name "Current State" ;
         sh:description "The current state according to the state machine / workflow engine identified in the workflow element."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:structure a sh:PropertyShape ;
         sh:path s3m:structure ;
-        rdf:type sh:PropertyShape;
         sh:name "Data Model Structure" ;
         sh:description "The data structure of the model."@en ;
         sh:datatype s3m:Cluster ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
-        ] ;
+        sh:minCount 1 .
 
-    sh:property [
+    s3m:subject a sh:PropertyShape ;
         sh:path s3m:subject ;
-        rdf:type sh:PropertyShape;
         sh:name "Subject" ;
         sh:description "Id of human subject of the data, e.g.: • subject of record (patient, customer, etc.) • a family member • another clinically relevant person."@en ;
         sh:datatype s3m:Party ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:provider a sh:PropertyShape ;
         sh:path s3m:provider ;
-        rdf:type sh:PropertyShape;
         sh:name "Provider" ;
         sh:description "Optional identification of the source of the information, which might be: • a patient • a patient agent, e.g. parent, guardian • a clinician • a technician • a device or software."@en ;
         sh:datatype s3m:Party ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:participation a sh:PropertyShape ;
         sh:path s3m:participation ;
-        rdf:type sh:PropertyShape;
         sh:name "Participation" ;
         sh:description "List of other participations in the data."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype s3m:Participation ;
-                ]
-        ] ;
+                ] .
 
-    sh:property [
+    s3m:protocol a sh:PropertyShape ;
         sh:path s3m:protocol ;
-        rdf:type sh:PropertyShape;
         sh:name "Protocol" ;
         sh:description "Optional external identifier of protocol used when collecting the data. This could be a clinical guideline, an operations protocol,etc."@en ;
         sh:datatype s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:workflow a sh:PropertyShape ;
         sh:path s3m:workflow ;
-        rdf:type sh:PropertyShape;
         sh:name "Workflow" ;
         sh:description "Identifier of externally held workflow engine (state machine) data for this workflow execution."@en ;
         sh:datatype s3m:XdLink ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
-        sh:path s3m:acs ;
-        rdf:type sh:PropertyShape;
+    s3m:acsLink a sh:PropertyShape ;
+        sh:path s3m:acsLink ;
         sh:name "Access Control System" ;
         sh:description "Identifier of an externally held access control system. This URI can be an ontology, vocabulary or descriptive document URI link."@en ;
         sh:datatype s3m:XdLink ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:audit a sh:PropertyShape ;
         sh:path s3m:audit ;
-        rdf:type sh:PropertyShape;
         sh:name "Audit" ;
         sh:description "List of audits from the system of original commit of information forming the content, or from a conversion gateway which has processed this data."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype s3m:Audit ;
-                ]
-        ] ;
+                ] .
 
-    sh:property [
+    s3m:attestation a sh:PropertyShape ;
         sh:path s3m:attestation ;
-        rdf:type sh:PropertyShape;
         sh:name "Attestation" ;
-        sh:description ""@en ;
+        sh:description "Attestation record of an instance of data."@en ;
         sh:datatype s3m:Attestation ;
         sh:maxCount 1 ;
-        sh:minCount 0 ;
-        ] ;
+        sh:minCount 0 .
 
-    sh:property [
+    s3m:links a sh:PropertyShape ;
         sh:path s3m:links ;
-        rdf:type sh:PropertyShape;
         sh:name "Links" ;
         sh:description "Optional link(s) to other related, locatable structures or external entities."@en ;
         sh:node dash:ListShape ;
             sh:property [
                 sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
                 sh:datatype s3m:XdLink ;
-                ]
-        ] .
+                ] .
 
