@@ -24,6 +24,7 @@ s3m:version rdfs:range s3m:ReferenceModel.
 
 s3m:metaData a rdfs:Class ;
   rdfs:label "metaData" .
+s3m:metaData rdfs:subClassOf s3m:ReferenceModel .
 s3m:author rdf:type rdf:Property, xsd:string .
 s3m:author rdfs:range s3m:metaData .
 s3m:license rdf:type rdf:Property, xsd:string .
@@ -37,9 +38,9 @@ s3m:fileFormat rdf:value "text/turtle" .
 s3m:fileFormat rdfs:range s3m:metaData .
 
 s3m:XdAny a rdfs:Class ;
+  rdfs:subClassOf s3m:ReferenceModel ;
   dash:abstract true ;
-  rdfs:label "XdAny" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:label "XdAny" .
 s3m:XdLabel rdf:type rdf:Property, xsd:string ;
     rdfs:range s3m:XdAny .
 s3m:act rdf:type rdf:Property, xsd:string ;
@@ -55,6 +56,8 @@ s3m:modified rdf:type rdf:Property, xsd:dateTime ;
 s3m:latitude rdf:type rdf:Property, xsd:decimal ;
     rdfs:range s3m:XdAny .
 s3m:longitude rdf:type rdf:Property, xsd:decimal ;
+    rdfs:range s3m:XdAny .
+s3m:altitude rdf:type rdf:Property, xsd:integer ;
     rdfs:range s3m:XdAny .
 
 
@@ -226,8 +229,8 @@ s3m:isNormal rdf:type rdf:Property, xsd:boolean ;
 
 
 s3m:Audit a rdfs:Class ;
-  rdfs:label "Audit" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Audit" .
 s3m:AuditLabel rdf:type rdf:Property, xsd:string ;
       rdfs:range s3m:Audit .
 s3m:systemId rdf:type rdf:Property, s3m:XdString ;
@@ -241,8 +244,8 @@ s3m:timestamp rdf:type rdf:Property, xsd:dateTime ;
 
 
 s3m:Attestation a rdfs:Class ;
-  rdfs:label "Attestation" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Attestation" .
 s3m:AttestationLabel rdf:type rdf:Property, xsd:string ;
     rdfs:range s3m:Attestation .
 s3m:view rdf:type rdf:Property ;
@@ -260,8 +263,8 @@ s3m:pending rdf:type rdf:Property ;
 
 
 s3m:Party a rdfs:Class ;
-  rdfs:label "Party" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Party" .
 s3m:PartyLabel rdf:type rdf:Property ;
       rdfs:range s3m:Party .
 s3m:partyName rdf:type rdf:Property ;
@@ -273,8 +276,8 @@ s3m:partyDetails rdf:type rdf:Property ;
 
 
 s3m:Participation a rdfs:Class ;
-  rdfs:label "Participation" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Participation" .
 s3m:ParticipationLabel rdf:type rdf:Property ;
       rdfs:range s3m:Participation .
 s3m:performer rdf:type rdf:Property ;
@@ -290,8 +293,8 @@ s3m:end rdf:type rdf:Property ;
 
 
 s3m:Cluster a rdfs:Class ;
-  rdfs:label "Cluster" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Cluster" .
 s3m:ClusterLabel rdf:type rdf:Property ;
       rdfs:range s3m:Cluster .
 s3m:items rdf:type rdf:Property ;
@@ -299,13 +302,13 @@ s3m:items rdf:type rdf:Property ;
 
 
 s3m:dataModel a rdfs:Class ;
-  rdfs:label "Data Model" ;
-  rdfs:subClassOf s3m:ReferenceModel .
+  rdfs:subClassOf s3m:ReferenceModel ;
+  rdfs:label "Data Model" .
 s3m:cuid rdf:type rdf:Property ;
       rdfs:range s3m:dataModel .
 s3m:metaData rdf:type rdf:Property ;
       rdfs:range s3m:dataModel .
-s3m:DataModelLabel rdf:type rdf:Property ;
+s3m:dataModelLabel rdf:type rdf:Property ;
       rdfs:range s3m:dataModel .
 s3m:dmLanguage rdf:type rdf:Property ;
       rdfs:range s3m:dataModel .
