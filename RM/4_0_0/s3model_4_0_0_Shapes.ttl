@@ -30,7 +30,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:description "The Person that is the author of this data model."@en ;
         sh:datatype schema:Person ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:license a sh:PropertyShape ;
         sh:path schema:license ;
@@ -38,7 +38,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:description "A license document that applies to this content, indicated by URL."@en ;
         sh:datatype schema:URL ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
         
 
     s3m:publisher a sh:PropertyShape ;
@@ -46,7 +46,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:name "Publisher" ;
         sh:description "The Person or Organization that published this data model."@en ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:datePublished a sh:PropertyShape ;
         sh:path schema:datePublished ;
@@ -54,7 +54,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:description "DateTime of first publication."@en ;
         sh:datatype xsd:date ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:fileFormat a sh:PropertyShape ;
         sh:path schema:fileFormat ;
@@ -62,7 +62,7 @@ s3m:MetaDataShape a sh:NodeShape ;
         sh:description "Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content. S3M models are in Turtle format 'text/turtle'."@en ;
         sh:datatype schema:Text ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 
 s3m:XdAnyShape a sh:NodeShape ;
@@ -86,7 +86,7 @@ s3m:XdAnyShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:act a sh:PropertyShape ;
@@ -220,7 +220,7 @@ s3m:XdLinkShape a sh:NodeShape ;
         sh:description "A required term, normally drawn from a vocabulary or ontology such as the OBO RO."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:relationURI a sh:PropertyShape ;
         sh:path s3m:relationUri ;
@@ -471,7 +471,7 @@ s3m:XdCountShape a sh:NodeShape ;
         sh:description "The name or type of the items counted. Examples are cigarettes, drinks, pregnancies, episodes, widgets, etc. May or may not come from a standard terminology."@en ;
         sh:node s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 s3m:XdQuantityShape a sh:NodeShape ;
     sh:targetClass s3m:XdQuantity ;
@@ -495,7 +495,7 @@ s3m:XdQuantityShape a sh:NodeShape ;
         sh:description "The name or type of the quantity. Examples are 'kg', 'mmHg', 'ms-1', 'km/h'. Should come from a standard terminology."@en ;
         sh:node s3m:XdStringShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 s3m:XdFloatShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
@@ -519,7 +519,7 @@ s3m:XdFloatShape a sh:NodeShape ;
         sh:description "The name or type of the float value. May or may not come from a standardized vocabulary."@en ;
         sh:node s3m:XdStringShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 s3m:XdTemporalShape a sh:NodeShape ;
     sh:targetClass s3m:XdFloat ;
@@ -646,7 +646,7 @@ s3m:XdIntervalShape a sh:NodeShape ;
         sh:description "Is the lower value of the interval inclusive?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
         
     s3m:upperIncluded a sh:PropertyShape ;
         sh:path s3m:upperIncluded ;
@@ -654,7 +654,7 @@ s3m:XdIntervalShape a sh:NodeShape ;
         sh:description "Is the upper value of the interval inclusive?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
         
     s3m:lowerBounded a sh:PropertyShape ;
         sh:path s3m:lowerBounded ;
@@ -662,7 +662,7 @@ s3m:XdIntervalShape a sh:NodeShape ;
         sh:description "Is the lower value of the interval bounded?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
         
     s3m:upperBounded a sh:PropertyShape ;
         sh:path s3m:upperBounded ;
@@ -670,7 +670,7 @@ s3m:XdIntervalShape a sh:NodeShape ;
         sh:description "Is the upper value of the interval bounded?"@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
         
     s3m:unitsName a sh:PropertyShape ;
         sh:path s3m:unitsName ;
@@ -705,7 +705,7 @@ s3m:ReferenceRangeShape a sh:NodeShape ;
         sh:description "Term whose value indicates the meaning of this range, e.g. 'normal', 'critical', 'therapeutic' etc."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:interval a sh:PropertyShape ;
         sh:path s3m:interval ;
@@ -713,7 +713,7 @@ s3m:ReferenceRangeShape a sh:NodeShape ;
         sh:description "The data range for this reference range."@en ;
         sh:datatype s3m:XdInterval ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:isNormal a sh:PropertyShape ;
         sh:path s3m:isNormal ;
@@ -721,7 +721,7 @@ s3m:ReferenceRangeShape a sh:NodeShape ;
         sh:description "True if this reference range defines values that are considered to be normal. In the context of the value in the definition element."@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 
 s3m:AuditShape a sh:NodeShape ;
@@ -740,7 +740,7 @@ s3m:AuditShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:systemId a sh:PropertyShape ;
@@ -749,7 +749,7 @@ s3m:AuditShape a sh:NodeShape ;
         sh:description "Identifier of systems which created or handled the information item. 'Systems' can also be defined as an individual application or a data repository in which the data was manipulated."@en ;
         sh:datatype s3m:XdString ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:systemUser a sh:PropertyShape ;
         sh:path s3m:systemUser ;
@@ -773,7 +773,7 @@ s3m:AuditShape a sh:NodeShape ;
         sh:description "Timestamp (dateTime) of handling the item."@en ;
         sh:datatype xsd:dateTime ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 s3m:PartyShape a sh:NodeShape ;
     sh:targetClass s3m:Party ;
@@ -790,7 +790,7 @@ s3m:PartyShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:partyName a sh:PropertyShape ;
@@ -835,7 +835,7 @@ s3m:AttestationShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:view a sh:PropertyShape ;
@@ -884,7 +884,7 @@ s3m:AttestationShape a sh:NodeShape ;
         sh:description "True if this attestation is outstanding; 'false' means it has been completed."@en ;
         sh:datatype xsd:boolean ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
 
 s3m:ParticipationShape a sh:NodeShape ;
@@ -904,7 +904,7 @@ s3m:ParticipationShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:performer a sh:PropertyShape ;
@@ -961,7 +961,7 @@ s3m:ClusterShape a sh:NodeShape ;
         sh:description "Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:items a sh:PropertyShape ;
@@ -1002,7 +1002,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:description "Collision-resistant id."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:metaData a sh:PropertyShape ;
         sh:path s3m:metaData ;
@@ -1010,7 +1010,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:description "Metadata about the origins of the data model."@en ;
         sh:datatype s3m:metaDataShape ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:dataModelLabel a sh:PropertyShape ;
         sh:path s3m:dataModelLabel ;
@@ -1018,7 +1018,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:description "Descriptive name of this data model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:defaultValue "Enter a label." .
 
     s3m:dmLanguage a sh:PropertyShape ;
@@ -1027,7 +1027,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:description "Mandatory indicator of the localised language in which this DM is written. The value space of language is the set of all strings that are valid language identifiers as defined [RFC 3066]."@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:dmEncoding a sh:PropertyShape ;
         sh:path s3m:dmEncoding ;
@@ -1036,7 +1036,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:datatype xsd:string ;
         s3m:dmEncoding "UTF-8" ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:currentState a sh:PropertyShape ;
         sh:path s3m:currentState ;
@@ -1052,7 +1052,7 @@ s3m:DataModelShape a sh:NodeShape ;
         sh:description "The data structure of the model."@en ;
         sh:datatype s3m:Cluster ;
         sh:maxCount 1 ;
-        sh:minCount 1 .
+        sh:minCount 0 .
 
     s3m:subject a sh:PropertyShape ;
         sh:path s3m:subject ;

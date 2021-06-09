@@ -38,41 +38,47 @@ s3m:cjff70c8904bblzl3ujhclwu0 a s3m:DataModelShape ;
     s3m:participation (:cji1yqqod004clkl3tkc165sw) ;
     s3m:protocol :cjifyy08d000rs5l3m7c2nkyx ;
     s3m:workflow :cji1yqnpb0023lkl37horu6jm ;
-    s3m:acs :cji1yqnpb0023lkl37horu6kl ;
+    s3m:acsLink :cji1yqnpb0023lkl37horu6kl ;
     s3m:audit (:cji1yqqsd004elkl3kmdwzvaz) ;
     s3m:attestation :cji1yqqq7004dlkl3d82s6cn7 ;
-    s3m:link :cji1yqnn60021lkl3wvadadzf .
+    s3m:links (:cji1yqnn60021lkl3wvadadzf) .
 
-
+# Subject
 :cjifyy22m003as5l3vj25wrtm rdfs:subClassOf s3m:Party ;
   s3m:PartyLabel "Enter the name of the Subject" .
-
-
+# Provider
 :cji1yqq62003zlkl36cpaus61 rdfs:subClassOf s3m:Party ;
   s3m:PartyLabel "Enter the name of the Provider" .
-
+# Participation
 :cji1yqqod004clkl3tkc165sw rdfs:subClassOf s3m:Participation ;
   s3m:ParticipationLabel "Enter the name of the Paticipation model." .
-
+# Protocol
 :cjifyy08d000rs5l3m7c2nkyx rdfs:subClassOf s3m:XdString ;
   s3m:XdLabel "Enter the name of the model." .
- 
+# Workflow
 :cji1yqnpb0023lkl37horu6jm rdfs:subClassOf s3m:XdLink ;
   s3m:XdLabel "Enter the name of the model." .
- 
+# ACS Link
 :cji1yqnpb0023lkl37horu6kl rdfs:subClassOf s3m:XdLink ;
   s3m:XdLabel "Enter the name of the model." .
- 
+# Audits
 :cji1yqqsd004elkl3kmdwzvaz rdfs:subClassOf s3m:Audit ;
   s3m:AuditLabel "Enter the name of the Audit model." .
- 
+
+# Attestation
 :cji1yqqq7004dlkl3d82s6cn7 rdfs:subClassOf s3m:Attestation ;
   s3m:AttestationLabel "Enter the name of the Attestation model." .
- 
+
+# Links
 :cji1yqnn60021lkl3wvadadzf rdfs:subClassOf s3m:XdLink ;
   s3m:XdLabel "Enter the name of the model." .
  
 # Structure
 :cji1yqp7q003wlkl39ge4nc11 rdfs:subClassOf s3m:Cluster ;
-  s3m:XdLabel "Enter the name of the Structure model." .
- 
+  s3m:ClusterLabel "Enter the name of the Structure model." ;
+  s3m:items (:cjifyxzkz0003s5l3wsz79e1t ) .
+
+  :cjifyxzkz0003s5l3wsz79e1t rdfs:subClassOf s3m:XdBoolean ;
+    s3m:XdLabel "Boolean Test" ;
+    s3m:trueValues ("Yes" "True") ;
+    s3m:falseValues ("No" "False") .
