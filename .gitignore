@@ -15,3 +15,4 @@ build/
 # editor
 .vscode/
 S3Model.xpr
+S3Model.code-workspace

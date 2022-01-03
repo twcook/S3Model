@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Reference Implementation'
-copyright = '2009 - 2019, Timothy W. Cook'
+copyright = '2009 - 2021, Timothy W. Cook'
 author = 'Timothy W. Cook'
 
 # The version info for the project you're documenting, acts as replacement for
