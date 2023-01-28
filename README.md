@@ -1,9 +1,9 @@
 # S3Model
 
-[![Build Status](https://travis-ci.com/DataInsightsInc/S3Model.svg?branch=master)](https://travis-ci.com/DataInsightsInc/S3Model)
+[![Build Status](https://travis-ci.com/twcook/S3Model.svg?branch=master)](https://travis-ci.com/twcook/S3Model)
 
 Shareable-Structured-Semantic Model (S3Model)
-See the Documentation 'https://github.com/DataInsightsInc/S3Model/docs/index.html'
+See the [Documentation]('https://s3model.com')
 
 
 A S3Model Data Model (DM) XML Schema file is named using the CUID of the complexType restriction of ConceptType from the RM. The CUID is prepended with 'dm-' and has the file extension '.xsd'.
@@ -18,8 +18,8 @@ The complexTypes in the RM named Xd* all descend from XdAnyType where Xd denotes
 
 Python Implementation
 =====================
-The Python 3.7+ implementation is in located in the project https://github.com/DataInsightsInc/S3MPython
-There are tutorials included in the Jupyter notebooks.
+The Python implementation is in located in the project https://github.com/twcook/S3MPython
+There are tutorials included in the examples folder as Jupyter notebooks.
 
 See the Getting Started notebook.
 
