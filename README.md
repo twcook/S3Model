@@ -19,17 +19,18 @@ The complexTypes in the RM named Xd* all descend from XdAnyType where Xd denotes
 
 Python Implementation
 =====================
-The Python implementation is in located in the project https://github.com/twcook/S3MPython
+The Python implementation is located in the project https://github.com/twcook/S3MPython
 There are tutorials included in the examples folder as Jupyter notebooks.
 
 
-See the Getting Started notebook.
+See the *Getting Started* notebook.
 
 You will need to install Anaconda for your platform.
 https://www.anaconda.com/download/
 
 
-Then create the S3Model environement with:
+Then create the S3Model environment with:
 ::code bash
-    $conda env create -f s3m_environment.yml
+    $conda env create -f S3Model.yml
 
+The resulting Python environment name will be *S3Model*.
