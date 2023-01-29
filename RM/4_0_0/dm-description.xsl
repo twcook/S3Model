@@ -8,7 +8,7 @@
     version="2.0">
     <xd:doc scope="stylesheet">
         <xd:desc>
-            <xd:p><xd:b>Stylesheet: Created on </xd:b> March 24, 2015</xd:p>
+            <xd:p><xd:b>Stylesheet: Created on </xd:b>2023-01-30</xd:p>
             <xd:p><xd:b>Author:</xd:b>Timothy W. Cook</xd:p>
             <xd:p>Display the detailed description of data based on a S3Model Concept Model.</xd:p>
         </xd:desc>
@@ -35,11 +35,11 @@
     
     <xd:doc>
         <xd:desc>
-            <xd:p>A table for displaying the CM metadata.</xd:p>
+            <xd:p>A table for displaying the DM metadata.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="metadata">
-    <table title="CM Metadata" align="center" cellpadding="10" border="2" style="width:100%;font-size:12">
+    <table title="DM Metadata" align="center" cellpadding="10" border="2" style="width:100%;font-size:12">
         <caption style="font-size:18;font-weight:bold">CM Metadata</caption>
         <tr><th>Name</th><th>Content</th></tr>
         <tr><td><b>Title:</b></td> <td><xsl:value-of select="//dct:title"/></td></tr>
