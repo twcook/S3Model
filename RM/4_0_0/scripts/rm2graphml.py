@@ -3,7 +3,7 @@
 """
 rm2graphml.py
 
-Extracts the graph like relationships from the S3Model reference model and creates a GraphML representation.
+Extracts the relationships from the S3Model reference model and creates a GraphML representation.
 
 Copyright (C) 2023 Timothy W. Cook, All Rights Reserved.
 

@@ -17,7 +17,7 @@
         <rdfs:isDefinedBy rdf:resource="https://www.s3model.com/docs/3\4_0_0/index.html/"/>
         <rdf:type rdf:resource="https://www.s3model.com/ns/s3m/s3model/RM"/>
         <rdfs:label xml:lang="en-us">S3Model Release 4.0.0; Reference Model</rdfs:label>
-      </rdf:Description>
+      </rdf:Description>      
     </xs:appinfo>
   </xs:annotation>
 
@@ -45,6 +45,7 @@
               <rdf:type rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
               <rdfs:comment xml:lang="en-us">Descriptive name of this datatype model. Provides the semantic 'name' for the model. Replaces what would be a global XML element name or class name in conventional modeling.</rdfs:comment>
             </rdf:Description>
+            
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
