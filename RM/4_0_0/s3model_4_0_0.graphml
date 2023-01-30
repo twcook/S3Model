@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns 
-    http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-
-
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:s3m="https://www.s3model.com/ns/s3m/"
+  xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns 
+  http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+   
+  <!-- XdAnyType elements -->
+  <key id="d0" for="node" attr.name="label" attr.type="string"></key>
+  <key id="d1" for="node" attr.name="act" attr.type="string"></key>
+  <key id="d2" for="node" attr.name="vtb" attr.type="string"></key>
+  <key id="d3" for="node" attr.name="vte" attr.type="string"></key>
+  <key id="d4" for="node" attr.name="tr" attr.type="string"></key>
+  <key id="d5" for="node" attr.name="latitude" attr.type="float"></key>
+  <key id="d6" for="node" attr.name="longitude" attr.type="float"></key>
+  <!-- XdBooleanType elements -->  
+  <key id="d7" for="node" attr.name="true-value" attr.type="string"></key>
+  <key id="d8" for="node" attr.name="false-value" attr.type="string"></key>
+  <!-- XdLinkType elements -->  
+  <key id="d9" for="node" attr.name="link" attr.type="string"></key>
+  <key id="d10" for="node" attr.name="relation" attr.type="string"></key>
+  <key id="d11" for="node" attr.name="relation-uri" attr.type="string"></key>  
+  <!-- XdStringType elements -->  
+  <key id="d12" for="node" attr.name="string-value" attr.type="string"></key>
+  <key id="d13" for="node" attr.name="string-language" attr.type="string"></key>
+  <!-- XdFileType elements -->  
+  <key id="d14" for="node" attr.name="size" attr.type="int"></key>
+  <key id="d15" for="node" attr.name="encoding" attr.type="string"></key>
+  <key id="d16" for="node" attr.name="xdfile-language" attr.type="string"></key>
+  <key id="d17" for="node" attr.name="formalism" attr.type="string"></key>
+  <key id="d18" for="node" attr.name="media-type" attr.type="string"></key>
+  <key id="d19" for="node" attr.name="compression-type" attr.type="string"></key>
+  <key id="d20" for="node" attr.name="hash-result" attr.type="string"></key>
+  <key id="d21" for="node" attr.name="hash-function" attr.type="string"></key>
+  <key id="d22" for="node" attr.name="alt-txt" attr.type="string"></key>
+  <key id="d23" for="node" attr.name="uri" attr.type="string"></key>
+  <key id="d24" for="node" attr.name="media-content" attr.type="string"></key>
+  <!-- XdOrderedType elements -->  
+  <key id="d25" for="node" attr.name="reference-range" attr.type="string"></key>
+  <key id="d26" for="node" attr.name="normal-status" attr.type="string"></key>  
+  <!-- XdType elements -->  
+  <key id="d" for="node" attr.name="a" attr.type="string"></key>
+  
+  
+  
+  
+  <!-- XdType elements -->  
+  <key id="d" for="node" attr.name="a" attr.type="string"></key>
+  
+  
+  
   <graph id="S3Model"  edgedefault="directed">
-    
+    <desc>This work is Copyright 2016 - 2023 Timothy W. Cook, All Rights Reserved. 
+      This is the Shareable, Structured, Semantic Model (S3Model) reference model (RM) implementation in GraphML.</desc>
+    <node id="XdAnyType">
+      <desc>Serves as the common ancestor of all eXtended data-types (Xd*) in S3Model.</desc>
+      <data key="d0"></data>
+    </node>
+
   </graph>
 </graphml>

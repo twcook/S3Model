@@ -8,4 +8,7 @@
   <!-- S3Model DMs -->
   <rewriteSystem systemIdStartString="https://dmgen.s3model.com/dmlib/" rewritePrefix="/home/GitHub/DM_Library/"/>
 
+  <!-- GraphML schemas -->
+  <uri name="http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd" uri="graphml/graphml.xsd"/>
+    
 </catalog>
