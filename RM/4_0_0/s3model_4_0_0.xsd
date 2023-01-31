@@ -14,7 +14,7 @@
    </xs:documentation>
     <xs:appinfo>
       <rdf:Description rdf:about="https://www.s3model.com/ns/s3m/s3model_4_0_0.xsd">
-        <rdfs:isDefinedBy rdf:resource="https://www.s3model.com/docs/3\4_0_0/index.html/"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.s3model.com/docs/4_0_0/index.html/"/>
         <rdf:type rdf:resource="https://www.s3model.com/ns/s3m/s3model/RM"/>
         <rdfs:label xml:lang="en-us">S3Model Release 4.0.0; Reference Model</rdfs:label>
       </rdf:Description>      
