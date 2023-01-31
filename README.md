@@ -1,7 +1,5 @@
 # S3Model
 
-[![Build Status](https://travis-ci.com/twcook/S3Model.svg?branch=master)](https://travis-ci.com/twcook/S3Model)
-
 Shareable-Structured-Semantic Model (S3Model)
 =============================================
 
@@ -13,5 +11,5 @@ S3Model offers a flexible and sharable data model that can be used across multip
 
 Join our open-source community and contribute to the development of S3Model. Together, we can revolutionize the way data is shared and processed, improving efficiency and driving innovation. Download S3Model today and start experiencing the benefits of cross-domain data interoperability."
 
-See the Documentation<'https://s3model.com'> for more details.
+See the [<'https://s3model.com'>][S3Model Documentation] for more details.
 
