@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="dm-description.xsl"?>
 <s3m:dm-0d4cbab9-7288-40e2-acaa-7651386a8430 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
