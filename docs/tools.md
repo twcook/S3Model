@@ -14,10 +14,10 @@ Download and install a distribution for your operating system.
 Then in a terminal window execute:
 
 ```sh
-conda env create -f S3Model.yml
+conda env create -f environment.yml
 ```
 
-Then follow the instructions to activate the environment.
+Then follow the instructions to activate the S3Model environment.
 
 
 
