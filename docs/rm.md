@@ -11,9 +11,11 @@ The *catalog* system in XML solves many issues around namespacing and network la
 
 Diagramatic documentation of the Reference Model schema can be reviewed at the link below.
 
-```{raw} html
-<p><a href='https://s3model.com/specifications/docs/rm/index.html' target='_blank'>Reference Model Technical Schema Docs</a></p>
-```
+
+
+[Reference Model Technical Schema Docs]('https://s3model.com/specifications/docs/rm/index.html')
+
+
 
 ## Distribution Layout
 
@@ -29,10 +31,11 @@ The directory tree contains several files and directories:
   - the *s3model_4_0_0.rdf* file of the triples that were extracted from the XML Schema using the rm_semantics_extractor.py tool.
   - the file *s3model_4_0_0.xsl* can be used to help visualize *s3model_4_0_0.xsd* in a browser
   - and the *dm-desciption.xsl* can be used to visualize data model schemas as html pages.
-  - s3model_3_1_0.xsd is the schema that is required by all S3Model Data Models using the xs:include directive as shown here:
+  - s3model_4_0_0.xsd is the schema that is required by all S3Model Data Models using the xs:include directive as shown here:
 
-```xml
-<xs:include schemaLocation="https://www.s3model.com/ns/s3m/s3model_4_0_0.xsd"/>
+```      
+  <xs:include schemaLocation="https://www.s3model.com/ns/s3m/s3model_4_0_0.xsd">
+
 ```
 
 ### Examples
