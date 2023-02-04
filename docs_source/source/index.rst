@@ -8,7 +8,7 @@ Reference Implementation
 ========================
 
 
-Release - 3.1.0
+Release - 4.0.0
 
 *Copyright 2009 - 2023 Timothy W. Cook - All Rights Reserved.*
 
@@ -21,6 +21,7 @@ Contents:
    rm
    tools
    support
+   glossary
 
 Indices and tables
 ==================
