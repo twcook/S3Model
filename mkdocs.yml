@@ -1,4 +1,4 @@
-site_name: S3Model
+site_name: Reference Model (S3Model)
 copyright: 'Copyright 2009 - 2023 Timothy W. Cook - All Rights Reserved.'
 theme:
     name: material
@@ -18,8 +18,6 @@ theme:
     hljs_languages:
         - yaml
     
-
-
 
 nav:
     - Home: 'index.md'
