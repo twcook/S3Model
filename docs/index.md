@@ -1,10 +1,10 @@
 # Shareable, Structured, Semantic Model (S3Model)
 
-*The Esperanto of Information Management.*
 
-## Reference Implementation
+## S3Model is the [Esperanto](https://s3model.com/specifications/docs/glossary.html#esperanto) of Information Management.
 
-Release - **4.0.0**
+
+                                   ---
 
 **Semantic** == Every component part of the data model may contain one or more URIs to ontologies, controlled vocabularies, policy guideline, etc. Any data item can have it's meaning defined in the model by anything with a URI.
 

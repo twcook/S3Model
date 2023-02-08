@@ -1,20 +1,23 @@
 # The Reference Implementation of the S3Model Reference Model
 
-S3Model may be implemented in most programming or data definition languages.
+
+##      Version: 4.0.0
+
+
+S3Model may be implemented in any programming or data definition language.
 
 The **reference implementation** is built in XML Schema.
-This is due to the ubiquitous nature of XML across industries, the compatibility with RDF/XML RDF serialization allowing embedding of the semantics into the structured schema. All of these technologies, including OWL and JSON-LD already use XML Schema datatypes so this reduces the technology and mental overhead of the stack.
+This is due to the ubiquitous nature of XML across industries, the compatibility with RDF/XML RDF serialization allowing embedding of the semantics into the structured schema. All of these technologies, including OWL and JSON Schema already use XML Schema datatypes so this reduces the technology and mental overhead of the stack.
 
 Virtually all modern programming and data analysis languages can manipulate and validate XML content.
 
-The *catalog* system in XML solves many issues around namespacing and network latency by allowing local persistence of schemas and documents even though the namespace of items may be referenced to a remote locations.
+The *catalog* system in XML solves many issues around namespacing and network latency by allowing local persistence of schemas and documents even though the namespace of items may be referenced to a remote location.
 
 Diagramatic documentation of the Reference Model schema can be reviewed at the link below.
 
 
 
 [Reference Model Technical Schema Docs]('https://s3model.com/specifications/docs/rm/index.html')
-
 
 
 ## Distribution Layout
