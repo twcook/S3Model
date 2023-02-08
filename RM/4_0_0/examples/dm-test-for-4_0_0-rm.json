@@ -1,0 +1,1217 @@
+{
+    "$schema": "https://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "ExceptionalValueType": {
+            "type": "object",
+            "required": ["evname"],
+            "properties": {
+                "evname": {"type": "string"}
+            }
+        },
+        "OTHType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "ASKUType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "NAVType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "TRCType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "ASKRType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "NINFType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "QSType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "NAType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "NIType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "UNCType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "INVType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "UNKType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "PINFType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "MSKType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "NASKType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "DERType": {
+            "allOf": [
+                {"$ref": "#/definitions/ExceptionalValueType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "XdAnyType": {
+            "type": "object",
+            "properties": {
+                "label": {"type": "string"},
+                "act": {"type": "string"},
+                "ExceptionalValue": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ExceptionalValue": {"$ref": "#/definitions/ExceptionalValueType"}
+                        }
+                    },
+                    "minItems": 0
+                },
+                "vtb": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "vte": {"type": "object"},
+                "tr": {"type": "object"},
+                "modified": {"type": "object"},
+                "latitude": {"type": "object"},
+                "longitude": {"type": "object"}
+            }
+        },
+        "InvlUnits": {
+            "type": "object",
+            "required": [
+                "unitsname",
+                "unitsuri"
+            ],
+            "properties": {
+                "unitsname": {"type": "string"},
+                "unitsuri": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "XdIntervalType": {
+            "required": [
+                "lowerincluded",
+                "upperincluded",
+                "lowerbounded",
+                "upperbounded"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "lower": {
+                            "type": [
+                                "string",
+                                "number",
+                                "integer",
+                                "boolean",
+                                "null",
+                                "object",
+                                "array"
+                            ]
+                        },
+                        "upper": {
+                            "type": [
+                                "string",
+                                "number",
+                                "integer",
+                                "boolean",
+                                "null",
+                                "object",
+                                "array"
+                            ]
+                        },
+                        "lowerincluded": {"type": "boolean"},
+                        "upperincluded": {"type": "boolean"},
+                        "lowerbounded": {"type": "boolean"},
+                        "upperbounded": {"type": "boolean"},
+                        "intervalunits": {"$ref": "#/definitions/InvlUnits"}
+                    }
+                }
+            ]
+        },
+        "ReferenceRangeType": {
+            "required": [
+                "definition",
+                "interval",
+                "isnormal"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "definition": {"type": "string"},
+                        "interval": {"$ref": "#/definitions/XdIntervalType"},
+                        "isnormal": {"type": "boolean"}
+                    }
+                }
+            ]
+        },
+        "XdOrderedType": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "ReferenceRange": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/ReferenceRangeType"},
+                            "minItems": 0
+                        },
+                        "normalstatus": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "XdLinkType": {
+            "required": ["relation"],
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "link": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "relation": {"type": "string"},
+                        "relationuri": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                }
+            ]
+        },
+        "ItemType": {
+            "type": "object",
+            "properties": {}
+        },
+        "XdStringType": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "xdstringvalue": {"type": "string"},
+                        "xdstringlanguage": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "mcd3477c5e63a44b98ac9239b64665cd5e": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mce0acd605b9ea4a2486d694ace64a2f46": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc9930095790374465af3e4d720d19862e": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mcaa6164d140be4d1cac084ffcc2acc841": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc5b61bcd78c6d49bb9099aaaae0493586": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mcfe5d4902f05149ff98abe22de92d5afe": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mce474d4db1d6d42e39cd05ac3251a0d04": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mce7d068e5392d43cfbd42e73f803ee372": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc9e029d49b0bc47d0ac338ac347f0d09e": {
+            "allOf": [
+                {"$ref": "#/definitions/XdStringType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "XdAdapterType": {
+            "allOf": [
+                {"$ref": "#/definitions/ItemType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "XdAdaptervalue": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "XdAdapter-value": {"$ref": "#/definitions/XdAnyType"}
+                                }
+                            },
+                            "minItems": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "mc53f65a9368ee432d8936f81ac416f0dc": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mce50e0767e8e14f769be2ada9cd41fc7c": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mcd0d2df5a9dae46b29e9105d66c2856fd": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mcb39387e0e02c47d2aa28d862931a1ad6": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc6e38dee07979449e97dd31dd204ceed0": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc0a106c2e984446b4a6961e87f8a16925": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc0ef9269c0d7642b3a5aeedb411d032b3": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc18880242acd24b46b2f7f3d7466afc43": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mc857747bb998a48948dc67ff88864bf7b": {
+            "allOf": [
+                {"$ref": "#/definitions/XdAdapterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "ClusterType": {
+            "allOf": [
+                {"$ref": "#/definitions/ItemType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "label": {"type": "string"},
+                        "Items": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Items": {"$ref": "#/definitions/ItemType"}
+                                }
+                            },
+                            "minItems": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "PartyType": {
+            "type": "object",
+            "properties": {
+                "label": {"type": "string"},
+                "partyname": {"type": "string"},
+                "partyref": {"$ref": "#/definitions/XdLinkType"},
+                "partydetails": {"$ref": "#/definitions/ClusterType"}
+            }
+        },
+        "ParticipationType": {
+            "type": "object",
+            "properties": {
+                "label": {"type": "string"},
+                "performer": {"$ref": "#/definitions/PartyType"},
+                "function": {"$ref": "#/definitions/XdStringType"},
+                "mode": {"$ref": "#/definitions/XdStringType"},
+                "start": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "end": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "XdOrdinalType": {
+            "required": [
+                "ordinal",
+                "symbol"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/XdOrderedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "ordinal": {"type": "number"},
+                        "symbol": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "mc454f3730dbe44137b13ff1f9374a2156": {
+            "allOf": [
+                {"$ref": "#/definitions/ClusterType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "AuditType": {
+            "type": "object",
+            "required": [
+                "systemid",
+                "timestamp"
+            ],
+            "properties": {
+                "label": {"type": "string"},
+                "systemid": {"$ref": "#/definitions/XdStringType"},
+                "systemuser": {"$ref": "#/definitions/PartyType"},
+                "location": {"$ref": "#/definitions/ClusterType"},
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "XdFileType": {
+            "required": [
+                "uri",
+                "mediacontent"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "size": {"type": "integer"},
+                        "encoding": {"type": "string"},
+                        "xdfilelanguage": {"type": "string"},
+                        "formalism": {"type": "string"},
+                        "mediatype": {"type": "string"},
+                        "compressiontype": {"type": "string"},
+                        "hashresult": {"type": "string"},
+                        "hashfunction": {"type": "string"},
+                        "alttxt": {"type": "string"},
+                        "uri": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "mediacontent": {
+                            "type": "array",
+                            "items": {"type": "integer"}
+                        }
+                    }
+                }
+            ]
+        },
+        "AttestationType": {
+            "type": "object",
+            "required": ["pending"],
+            "properties": {
+                "label": {"type": "string"},
+                "view": {"$ref": "#/definitions/XdFileType"},
+                "proof": {"$ref": "#/definitions/XdFileType"},
+                "reason": {"$ref": "#/definitions/XdStringType"},
+                "committer": {"$ref": "#/definitions/PartyType"},
+                "committed": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "pending": {"type": "boolean"}
+            }
+        },
+        "DMType": {
+            "type": "object",
+            "required": [
+                "dmlanguage",
+                "dmencoding",
+                "Item"
+            ],
+            "properties": {
+                "label": {"type": "string"},
+                "dmlanguage": {"type": "string"},
+                "dmencoding": {"type": "string"},
+                "currentstate": {"type": "string"},
+                "Item": {"type": "object"},
+                "subject": {"$ref": "#/definitions/PartyType"},
+                "provider": {"$ref": "#/definitions/PartyType"},
+                "Participation": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ParticipationType"},
+                    "minItems": 0
+                },
+                "protocol": {"$ref": "#/definitions/XdStringType"},
+                "workflow": {"$ref": "#/definitions/XdLinkType"},
+                "acs": {"$ref": "#/definitions/XdLinkType"},
+                "Audit": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AuditType"},
+                    "minItems": 0
+                },
+                "attestation": {"$ref": "#/definitions/AttestationType"},
+                "XdLink": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/XdLinkType"},
+                    "minItems": 0
+                }
+            }
+        },
+        "XdQuantifiedType": {
+            "allOf": [
+                {"$ref": "#/definitions/XdOrderedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "magnitudestatus": {"$ref": "#/definitions/MagnitudeStatus"},
+                        "error": {"type": "integer"},
+                        "accuracy": {"type": "number"}
+                    }
+                }
+            ]
+        },
+        "XdQuantityType": {
+            "required": ["xdquantityunits"],
+            "allOf": [
+                {"$ref": "#/definitions/XdQuantifiedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "xdquantityvalue": {"type": "number"},
+                        "xdquantityunits": {"$ref": "#/definitions/XdStringType"}
+                    }
+                }
+            ]
+        },
+        "mc0d4cbab9728840e2acaa7651386a8430": {
+            "allOf": [
+                {"$ref": "#/definitions/DMType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "XdCountType": {
+            "required": ["xdcountunits"],
+            "allOf": [
+                {"$ref": "#/definitions/XdQuantifiedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "xdcountvalue": {"type": "integer"},
+                        "xdcountunits": {"$ref": "#/definitions/XdStringType"}
+                    }
+                }
+            ]
+        },
+        "XdTemporalType": {
+            "allOf": [
+                {"$ref": "#/definitions/XdOrderedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "xdtemporaldate": {"type": "string"},
+                        "xdtemporaltime": {"type": "string"},
+                        "xdtemporaldatetime": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "xdtemporalday": {
+                            "allOf": [
+                                {}
+                            ]
+                        },
+                        "xdtemporalmonth": {
+                            "allOf": [
+                                {}
+                            ]
+                        },
+                        "xdtemporalyear": {
+                            "allOf": [
+                                {}
+                            ]
+                        },
+                        "xdtemporalyearmonth": {
+                            "allOf": [
+                                {}
+                            ]
+                        },
+                        "xdtemporalmonthday": {
+                            "allOf": [
+                                {}
+                            ]
+                        },
+                        "xdtemporalduration": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "XdFloatType": {
+            "allOf": [
+                {"$ref": "#/definitions/XdQuantifiedType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "xdfloatvalue": {"type": "number"},
+                        "xdfloatunits": {"$ref": "#/definitions/XdStringType"}
+                    }
+                }
+            ]
+        },
+        "XdBooleanType": {
+            "required": [
+                "truevalue",
+                "falsevalue"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/XdAnyType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "truevalue": {"type": "string"},
+                        "falsevalue": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "mca939d0f5b0af4988a0471af942678336": {
+            "allOf": [
+                {"$ref": "#/definitions/PartyType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "mcd24d6449b8b840aa88cabd2c8c7e0d46": {
+            "allOf": [
+                {"$ref": "#/definitions/PartyType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "MagnitudeStatus": {
+            "type": "string",
+            "enum": [
+                "equal",
+                "less_than",
+                "greater_than",
+                "less_than_or_equal",
+                "greater_than_or_equal",
+                "approximate"
+            ]
+        }
+    },
+    "anyOf": [
+        {
+            "type": "object",
+            "properties": {
+                "OTH": {"$ref": "#/definitions/OTHType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ASKU": {"$ref": "#/definitions/ASKUType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "NAV": {"$ref": "#/definitions/NAVType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "TRC": {"$ref": "#/definitions/TRCType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ASKR": {"$ref": "#/definitions/ASKRType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "NINF": {"$ref": "#/definitions/NINFType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "QS": {"$ref": "#/definitions/QSType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "NA": {"$ref": "#/definitions/NAType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "NI": {"$ref": "#/definitions/NIType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "UNC": {"$ref": "#/definitions/UNCType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "INV": {"$ref": "#/definitions/INVType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "UNK": {"$ref": "#/definitions/UNKType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "PINF": {"$ref": "#/definitions/PINFType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "MSK": {"$ref": "#/definitions/MSKType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "NASK": {"$ref": "#/definitions/NASKType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "DER": {"$ref": "#/definitions/DERType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-d3477c5e-63a4-4b98-ac92-39b64665cd5e": {"$ref": "#/definitions/mcd3477c5e63a44b98ac9239b64665cd5e"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-e0acd605-b9ea-4a24-86d6-94ace64a2f46": {"$ref": "#/definitions/mce0acd605b9ea4a2486d694ace64a2f46"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-99300957-9037-4465-af3e-4d720d19862e": {"$ref": "#/definitions/mc9930095790374465af3e4d720d19862e"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-aa6164d1-40be-4d1c-ac08-4ffcc2acc841": {"$ref": "#/definitions/mcaa6164d140be4d1cac084ffcc2acc841"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-5b61bcd7-8c6d-49bb-9099-aaaae0493586": {"$ref": "#/definitions/mc5b61bcd78c6d49bb9099aaaae0493586"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-fe5d4902-f051-49ff-98ab-e22de92d5afe": {"$ref": "#/definitions/mcfe5d4902f05149ff98abe22de92d5afe"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-e474d4db-1d6d-42e3-9cd0-5ac3251a0d04": {"$ref": "#/definitions/mce474d4db1d6d42e39cd05ac3251a0d04"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-e7d068e5-392d-43cf-bd42-e73f803ee372": {"$ref": "#/definitions/mce7d068e5392d43cfbd42e73f803ee372"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-9e029d49-b0bc-47d0-ac33-8ac347f0d09e": {"$ref": "#/definitions/mc9e029d49b0bc47d0ac338ac347f0d09e"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-53f65a93-68ee-432d-8936-f81ac416f0dc": {"$ref": "#/definitions/mc53f65a9368ee432d8936f81ac416f0dc"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-e50e0767-e8e1-4f76-9be2-ada9cd41fc7c": {"$ref": "#/definitions/mce50e0767e8e14f769be2ada9cd41fc7c"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-d0d2df5a-9dae-46b2-9e91-05d66c2856fd": {"$ref": "#/definitions/mcd0d2df5a9dae46b29e9105d66c2856fd"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-b39387e0-e02c-47d2-aa28-d862931a1ad6": {"$ref": "#/definitions/mcb39387e0e02c47d2aa28d862931a1ad6"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-6e38dee0-7979-449e-97dd-31dd204ceed0": {"$ref": "#/definitions/mc6e38dee07979449e97dd31dd204ceed0"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-0a106c2e-9844-46b4-a696-1e87f8a16925": {"$ref": "#/definitions/mc0a106c2e984446b4a6961e87f8a16925"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-0ef9269c-0d76-42b3-a5ae-edb411d032b3": {"$ref": "#/definitions/mc0ef9269c0d7642b3a5aeedb411d032b3"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-18880242-acd2-4b46-b2f7-f3d7466afc43": {"$ref": "#/definitions/mc18880242acd24b46b2f7f3d7466afc43"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-857747bb-998a-4894-8dc6-7ff88864bf7b": {"$ref": "#/definitions/mc857747bb998a48948dc67ff88864bf7b"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdAdapter": {"$ref": "#/definitions/XdAdapterType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ms-454f3730-dbe4-4137-b13f-f1f9374a2156": {"$ref": "#/definitions/mc454f3730dbe44137b13ff1f9374a2156"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Cluster": {"$ref": "#/definitions/ClusterType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdOrdered": {"$ref": "#/definitions/XdOrderedType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdAny": {"$ref": "#/definitions/XdAnyType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Participation": {"$ref": "#/definitions/ParticipationType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdAdapter-value": {"$ref": "#/definitions/XdAnyType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ExceptionalValue": {"$ref": "#/definitions/ExceptionalValueType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Item": {"$ref": "#/definitions/ItemType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdOrdinal": {"$ref": "#/definitions/XdOrdinalType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "DM": {"$ref": "#/definitions/DMType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdQuantity": {"$ref": "#/definitions/XdQuantityType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Items": {"$ref": "#/definitions/ItemType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "dm-0d4cbab9-7288-40e2-acaa-7651386a8430": {"$ref": "#/definitions/mc0d4cbab9728840e2acaa7651386a8430"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ReferenceRange": {"$ref": "#/definitions/ReferenceRangeType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdInterval": {"$ref": "#/definitions/XdIntervalType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdString": {"$ref": "#/definitions/XdStringType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Attestation": {"$ref": "#/definitions/AttestationType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdQuantified": {"$ref": "#/definitions/XdQuantifiedType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdCount": {"$ref": "#/definitions/XdCountType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Party": {"$ref": "#/definitions/PartyType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdTemporal": {"$ref": "#/definitions/XdTemporalType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdFile": {"$ref": "#/definitions/XdFileType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdFloat": {"$ref": "#/definitions/XdFloatType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdLink": {"$ref": "#/definitions/XdLinkType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "Audit": {"$ref": "#/definitions/AuditType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "XdBoolean": {"$ref": "#/definitions/XdBooleanType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "vte": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "tr": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "modified": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "latitude": {"type": "number"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "longitude": {"type": "number"}
+            }
+        }
+    ]
+}

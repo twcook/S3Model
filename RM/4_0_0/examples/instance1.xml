@@ -10,7 +10,7 @@
  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
- xsi:schemaLocation="https://www.s3model.com/ns/s3m/ file:/home/tim/DII/S3Model/RM/3_1_0/tests/dm-test-for-3_1_0-rm.xsd">
+ xsi:schemaLocation="https://www.s3model.com/ns/s3m/ file:./dm-test-for-4_0_0-rm.xsd">
     <label>Pima Indians Diabetes Database - Entry</label>
     <dm-language>en-US</dm-language>
     <dm-encoding>utf-8</dm-encoding>

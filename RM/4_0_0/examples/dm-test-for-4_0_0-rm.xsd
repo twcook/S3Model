@@ -15,7 +15,7 @@
   targetNamespace="https://www.s3model.com/ns/s3m/"
   xml:lang="en-US">
 <!-- Include the RM Schema -->
-  <xs:include schemaLocation="https://www.s3model.com/ns/s3m/s3model_3_1_0.xsd"/>
+  <xs:include schemaLocation="..\s3model_4_0_0.xsd"/>
 <!-- Metadata -->
   <xs:annotation><xs:appinfo><rdf:RDF><rdf:Description
     rdf:about="dm-0d4cbab9-7288-40e2-acaa-7651386a8430">
