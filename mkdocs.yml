@@ -21,7 +21,8 @@ theme:
 
 nav:
     - Home: 'index.md'
-    - Overview: 'front.md'
+    - Preface: 'front.md'
+    - Purpose: 'purpose.md'
     - Reference Model: 'rm.md'
     - Tools: 'tools.md'
     - Contributing: 'Contributing.md'
